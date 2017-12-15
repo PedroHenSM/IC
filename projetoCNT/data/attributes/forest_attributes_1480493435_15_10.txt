@@ -1,0 +1,815 @@
+1480493435		#seed
+80		#totalCNTs
+66.6667		#spacing in micrometers
+33		#growthSteps
+35.7143		#minX
+223.81		#maxX
+0.1		#sigma
+15		#density
+15		#diamInn
+25		#diamOut
+75		#growthRate
+90		#growthAngle
+10		#captureDist
+4.3e-07		#vdWStiffness
+
+#cnt 0
+14.0367		#diamInn
+25.456		#diamOut
+83.786		#growthRate
+90.8141		#growthAngle
+18707		#second inertia
+354.2		#section area
+6		#DOF
+43		#MAX_SEGM
+2.99236		#segLength
+#cnt 1
+16.2835		#diamInn
+27.3294		#diamOut
+80.9521		#growthRate
+89.3143		#growthAngle
+23932.4		#second inertia
+378.36		#section area
+6		#DOF
+43		#MAX_SEGM
+2.89115		#segLength
+#cnt 2
+15.3998		#diamInn
+25.4834		#diamOut
+83.0528		#growthRate
+90.6605		#growthAngle
+17940.7		#second inertia
+323.782		#section area
+6		#DOF
+43		#MAX_SEGM
+2.96617		#segLength
+#cnt 3
+14.5684		#diamInn
+26.0091		#diamOut
+90.3662		#growthRate
+90.4032		#growthAngle
+20252.2		#second inertia
+364.612		#section area
+6		#DOF
+43		#MAX_SEGM
+3.22736		#segLength
+#cnt 4
+15.7806		#diamInn
+29.0914		#diamOut
+72.1872		#growthRate
+87.0382		#growthAngle
+32114.3		#second inertia
+469.105		#section area
+6		#DOF
+43		#MAX_SEGM
+2.57811		#segLength
+#cnt 5
+14.6167		#diamInn
+25.3657		#diamOut
+68.8777		#growthRate
+88.5784		#growthAngle
+18081		#second inertia
+337.542		#section area
+6		#DOF
+43		#MAX_SEGM
+2.45992		#segLength
+#cnt 6
+16.0715		#diamInn
+23.9175		#diamOut
+84.6122		#growthRate
+84.5347		#growthAngle
+12788.5		#second inertia
+246.424		#section area
+6		#DOF
+43		#MAX_SEGM
+3.02186		#segLength
+#cnt 7
+14.941		#diamInn
+23.7381		#diamOut
+80.4276		#growthRate
+94.1862		#growthAngle
+13140.4		#second inertia
+267.242		#section area
+6		#DOF
+43		#MAX_SEGM
+2.87241		#segLength
+#cnt 8
+17.697		#diamInn
+23.3779		#diamOut
+70.4461		#growthRate
+95.3471		#growthAngle
+9847.26		#second inertia
+183.267		#section area
+6		#DOF
+43		#MAX_SEGM
+2.51593		#segLength
+#cnt 9
+15.6747		#diamInn
+21.735		#diamOut
+68.191		#growthRate
+90.3936		#growthAngle
+7991.59		#second inertia
+178.06		#section area
+6		#DOF
+43		#MAX_SEGM
+2.43539		#segLength
+#cnt 10
+11.7189		#diamInn
+23.3371		#diamOut
+74.652		#growthRate
+79.6946		#growthAngle
+13634		#second inertia
+319.882		#section area
+6		#DOF
+43		#MAX_SEGM
+2.66614		#segLength
+#cnt 11
+15.6877		#diamInn
+25.9994		#diamOut
+67.7439		#growthRate
+88.0045		#growthAngle
+19456.6		#second inertia
+337.614		#section area
+6		#DOF
+43		#MAX_SEGM
+2.41943		#segLength
+#cnt 12
+14.5416		#diamInn
+26.4141		#diamOut
+77.9396		#growthRate
+83.2743		#growthAngle
+21700.6		#second inertia
+381.9		#section area
+6		#DOF
+43		#MAX_SEGM
+2.78356		#segLength
+#cnt 13
+12.4038		#diamInn
+23.6469		#diamOut
+82.6889		#growthRate
+88.6195		#growthAngle
+14186.6		#second inertia
+318.339		#section area
+6		#DOF
+43		#MAX_SEGM
+2.95318		#segLength
+#cnt 14
+13.7835		#diamInn
+22.0441		#diamOut
+72.3026		#growthRate
+87.2317		#growthAngle
+9819.73		#second inertia
+232.445		#section area
+6		#DOF
+43		#MAX_SEGM
+2.58224		#segLength
+#cnt 15
+14.3003		#diamInn
+23.5909		#diamOut
+78.6074		#growthRate
+85.3278		#growthAngle
+13150.8		#second inertia
+276.485		#section area
+6		#DOF
+43		#MAX_SEGM
+2.80741		#segLength
+#cnt 16
+13.5139		#diamInn
+26.9449		#diamOut
+87.1106		#growthRate
+83.6292		#growthAngle
+24237.4		#second inertia
+426.785		#section area
+6		#DOF
+43		#MAX_SEGM
+3.11109		#segLength
+#cnt 17
+15.7659		#diamInn
+27.7875		#diamOut
+70.034		#growthRate
+88.6126		#growthAngle
+26233.4		#second inertia
+411.22		#section area
+6		#DOF
+43		#MAX_SEGM
+2.50122		#segLength
+#cnt 18
+13.9502		#diamInn
+23.6003		#diamOut
+70.7952		#growthRate
+102.033		#growthAngle
+13368.9		#second inertia
+284.602		#section area
+6		#DOF
+43		#MAX_SEGM
+2.5284		#segLength
+#cnt 19
+13.9643		#diamInn
+25.395		#diamOut
+69.6948		#growthRate
+96.5344		#growthAngle
+18549		#second inertia
+353.354		#section area
+6		#DOF
+43		#MAX_SEGM
+2.4891		#segLength
+#cnt 20
+13.7852		#diamInn
+29.6035		#diamOut
+69.1062		#growthRate
+91.3374		#growthAngle
+35927.6		#second inertia
+539.048		#section area
+6		#DOF
+43		#MAX_SEGM
+2.46808		#segLength
+#cnt 21
+14.5992		#diamInn
+24.6551		#diamOut
+68.0927		#growthRate
+89.5695		#growthAngle
+15908.4		#second inertia
+310.025		#section area
+6		#DOF
+43		#MAX_SEGM
+2.43188		#segLength
+#cnt 22
+14.8997		#diamInn
+25.3635		#diamOut
+67.1832		#growthRate
+86.4611		#growthAngle
+17895.3		#second inertia
+330.893		#section area
+6		#DOF
+43		#MAX_SEGM
+2.3994		#segLength
+#cnt 23
+15.6055		#diamInn
+21.017		#diamOut
+79.527		#growthRate
+89.9548		#growthAngle
+6666.2		#second inertia
+155.652		#section area
+6		#DOF
+43		#MAX_SEGM
+2.84025		#segLength
+#cnt 24
+15.4234		#diamInn
+24.6506		#diamOut
+78.7788		#growthRate
+94.5622		#growthAngle
+15347.3		#second inertia
+290.417		#section area
+6		#DOF
+43		#MAX_SEGM
+2.81353		#segLength
+#cnt 25
+13.4525		#diamInn
+24.3839		#diamOut
+85.2351		#growthRate
+94.6367		#growthAngle
+15745.8		#second inertia
+324.845		#section area
+6		#DOF
+43		#MAX_SEGM
+3.04411		#segLength
+#cnt 26
+15.1396		#diamInn
+24.1195		#diamOut
+83.2313		#growthRate
+81.3052		#growthAngle
+14033.8		#second inertia
+276.885		#section area
+6		#DOF
+43		#MAX_SEGM
+2.97255		#segLength
+#cnt 27
+15.456		#diamInn
+25.7124		#diamOut
+74.0451		#growthRate
+80.707		#growthAngle
+18654.4		#second inertia
+331.628		#section area
+6		#DOF
+43		#MAX_SEGM
+2.64447		#segLength
+#cnt 28
+14.5451		#diamInn
+24.9749		#diamOut
+87.2926		#growthRate
+85.863		#growthAngle
+16900.8		#second inertia
+323.731		#section area
+6		#DOF
+43		#MAX_SEGM
+3.11759		#segLength
+#cnt 29
+13.7896		#diamInn
+21.9838		#diamOut
+74.384		#growthRate
+88.3692		#growthAngle
+9690.25		#second inertia
+230.227		#section area
+6		#DOF
+43		#MAX_SEGM
+2.65657		#segLength
+#cnt 30
+14.7776		#diamInn
+23.9918		#diamOut
+68.351		#growthRate
+95.1292		#growthAngle
+13922.9		#second inertia
+280.566		#section area
+6		#DOF
+43		#MAX_SEGM
+2.44111		#segLength
+#cnt 31
+14.4711		#diamInn
+24.9209		#diamOut
+73.3672		#growthRate
+94.0449		#growthAngle
+16780.6		#second inertia
+323.301		#section area
+6		#DOF
+43		#MAX_SEGM
+2.62026		#segLength
+#cnt 32
+13.1256		#diamInn
+22.7664		#diamOut
+79.9356		#growthRate
+92.0437		#growthAngle
+11730		#second inertia
+271.767		#section area
+6		#DOF
+43		#MAX_SEGM
+2.85484		#segLength
+#cnt 33
+13.5149		#diamInn
+26.0097		#diamOut
+58.2719		#growthRate
+90.9235		#growthAngle
+20827.7		#second inertia
+387.871		#section area
+6		#DOF
+43		#MAX_SEGM
+2.08114		#segLength
+#cnt 34
+14.0525		#diamInn
+26.6804		#diamOut
+77.1974		#growthRate
+86.1051		#growthAngle
+22959.4		#second inertia
+403.986		#section area
+6		#DOF
+43		#MAX_SEGM
+2.75705		#segLength
+#cnt 35
+15.5911		#diamInn
+26.4807		#diamOut
+69.8646		#growthRate
+86.7203		#growthAngle
+21236.8		#second inertia
+359.826		#section area
+6		#DOF
+43		#MAX_SEGM
+2.49516		#segLength
+#cnt 36
+13.8722		#diamInn
+23.1315		#diamOut
+83.691		#growthRate
+87.6628		#growthAngle
+12235.8		#second inertia
+269.101		#section area
+6		#DOF
+43		#MAX_SEGM
+2.98896		#segLength
+#cnt 37
+14.9911		#diamInn
+23.5235		#diamOut
+75.7567		#growthRate
+89.2158		#growthAngle
+12551.4		#second inertia
+258.098		#section area
+6		#DOF
+43		#MAX_SEGM
+2.7056		#segLength
+#cnt 38
+12.6206		#diamInn
+25.1111		#diamOut
+71.0378		#growthRate
+91.2072		#growthAngle
+18272.4		#second inertia
+370.146		#section area
+6		#DOF
+43		#MAX_SEGM
+2.53706		#segLength
+#cnt 39
+17.6786		#diamInn
+26.5989		#diamOut
+80.9411		#growthRate
+80.085		#growthAngle
+19776.3		#second inertia
+310.207		#section area
+6		#DOF
+43		#MAX_SEGM
+2.89076		#segLength
+#cnt 40
+14.3897		#diamInn
+23.2004		#diamOut
+76.4846		#growthRate
+88.9086		#growthAngle
+12117.1		#second inertia
+260.121		#section area
+6		#DOF
+43		#MAX_SEGM
+2.73159		#segLength
+#cnt 41
+13.7963		#diamInn
+26.0369		#diamOut
+75.6919		#growthRate
+86.6052		#growthAngle
+20781.1		#second inertia
+382.948		#section area
+6		#DOF
+43		#MAX_SEGM
+2.70328		#segLength
+#cnt 42
+12.1469		#diamInn
+22.3065		#diamOut
+75.7677		#growthRate
+84.7004		#growthAngle
+11084.8		#second inertia
+274.917		#section area
+6		#DOF
+43		#MAX_SEGM
+2.70599		#segLength
+#cnt 43
+17.7494		#diamInn
+25.9686		#diamOut
+73.1553		#growthRate
+96.1611		#growthAngle
+17451.6		#second inertia
+282.215		#section area
+6		#DOF
+43		#MAX_SEGM
+2.61269		#segLength
+#cnt 44
+16.4995		#diamInn
+24.6366		#diamOut
+74.4662		#growthRate
+81.8221		#growthAngle
+14446		#second inertia
+262.895		#section area
+6		#DOF
+43		#MAX_SEGM
+2.65951		#segLength
+#cnt 45
+15.0248		#diamInn
+24.3122		#diamOut
+76.1707		#growthRate
+88.3378		#growthAngle
+14648.5		#second inertia
+286.935		#section area
+6		#DOF
+43		#MAX_SEGM
+2.72038		#segLength
+#cnt 46
+15.2873		#diamInn
+26.9704		#diamOut
+67.8984		#growthRate
+85.425		#growthAngle
+23291.7		#second inertia
+387.749		#section area
+6		#DOF
+43		#MAX_SEGM
+2.42494		#segLength
+#cnt 47
+14.2873		#diamInn
+23.2617		#diamOut
+61.2666		#growthRate
+84.6632		#growthAngle
+12327.2		#second inertia
+264.661		#section area
+6		#DOF
+43		#MAX_SEGM
+2.18809		#segLength
+#cnt 48
+16.4065		#diamInn
+26.0977		#diamOut
+78.2105		#growthRate
+81.4603		#growthAngle
+19214.4		#second inertia
+323.521		#section area
+6		#DOF
+43		#MAX_SEGM
+2.79323		#segLength
+#cnt 49
+14.9593		#diamInn
+25.0199		#diamOut
+70.4753		#growthRate
+84.5367		#growthAngle
+16777.7		#second inertia
+315.898		#section area
+6		#DOF
+43		#MAX_SEGM
+2.51697		#segLength
+#cnt 50
+16.1953		#diamInn
+23.756		#diamOut
+82.4806		#growthRate
+85.9449		#growthAngle
+12256.9		#second inertia
+237.238		#section area
+6		#DOF
+43		#MAX_SEGM
+2.94574		#segLength
+#cnt 51
+15.0292		#diamInn
+24.7162		#diamOut
+70.7313		#growthRate
+91.6791		#growthAngle
+15814.2		#second inertia
+302.388		#section area
+6		#DOF
+43		#MAX_SEGM
+2.52612		#segLength
+#cnt 52
+16.6171		#diamInn
+26.1909		#diamOut
+70.8846		#growthRate
+96.9669		#growthAngle
+19355.2		#second inertia
+321.884		#section area
+6		#DOF
+43		#MAX_SEGM
+2.53159		#segLength
+#cnt 53
+15.1559		#diamInn
+25.8151		#diamOut
+71.0698		#growthRate
+96.6863		#growthAngle
+19210.6		#second inertia
+343		#section area
+6		#DOF
+43		#MAX_SEGM
+2.53821		#segLength
+#cnt 54
+16.9083		#diamInn
+25.0773		#diamOut
+81.0346		#growthRate
+91.1663		#growthAngle
+15401.1		#second inertia
+269.377		#section area
+6		#DOF
+43		#MAX_SEGM
+2.89409		#segLength
+#cnt 55
+14.8801		#diamInn
+25.5365		#diamOut
+67.3076		#growthRate
+85.4669		#growthAngle
+18468.1		#second inertia
+338.269		#section area
+6		#DOF
+43		#MAX_SEGM
+2.40384		#segLength
+#cnt 56
+15.7448		#diamInn
+30.1477		#diamOut
+70.6249		#growthRate
+83.8127		#growthAngle
+37533.1		#second inertia
+519.136		#section area
+6		#DOF
+43		#MAX_SEGM
+2.52232		#segLength
+#cnt 57
+14.9256		#diamInn
+26.3669		#diamOut
+88.2161		#growthRate
+88.9469		#growthAngle
+21288.9		#second inertia
+371.054		#section area
+6		#DOF
+43		#MAX_SEGM
+3.15058		#segLength
+#cnt 58
+16.0143		#diamInn
+18.6872		#diamOut
+80.9254		#growthRate
+90.4342		#growthAngle
+2757.58		#second inertia
+72.8473		#section area
+6		#DOF
+43		#MAX_SEGM
+2.89019		#segLength
+#cnt 59
+16.3553		#diamInn
+24.2922		#diamOut
+73.1324		#growthRate
+86.6123		#growthAngle
+13581.5		#second inertia
+253.383		#section area
+6		#DOF
+43		#MAX_SEGM
+2.61187		#segLength
+#cnt 60
+12.9889		#diamInn
+24.0425		#diamOut
+84.5686		#growthRate
+91.1658		#growthAngle
+15004.4		#second inertia
+321.486		#section area
+6		#DOF
+43		#MAX_SEGM
+3.02031		#segLength
+#cnt 61
+13.7979		#diamInn
+24.8331		#diamOut
+75.5025		#growthRate
+81.9293		#growthAngle
+16888.6		#second inertia
+334.814		#section area
+6		#DOF
+43		#MAX_SEGM
+2.69652		#segLength
+#cnt 62
+14.5232		#diamInn
+24.5889		#diamOut
+77.9189		#growthRate
+86.0135		#growthAngle
+15760.4		#second inertia
+309.203		#section area
+6		#DOF
+43		#MAX_SEGM
+2.78282		#segLength
+#cnt 63
+14.5451		#diamInn
+25.2223		#diamOut
+77.3381		#growthRate
+91.9807		#growthAngle
+17668.9		#second inertia
+333.484		#section area
+6		#DOF
+43		#MAX_SEGM
+2.76208		#segLength
+#cnt 64
+16.9318		#diamInn
+27.6673		#diamOut
+58.0938		#growthRate
+86.1301		#growthAngle
+24728.8		#second inertia
+376.044		#section area
+6		#DOF
+43		#MAX_SEGM
+2.07478		#segLength
+#cnt 65
+18.999		#diamInn
+24.2464		#diamOut
+84.9463		#growthRate
+98.8538		#growthAngle
+10569.4		#second inertia
+178.227		#section area
+6		#DOF
+43		#MAX_SEGM
+3.0338		#segLength
+#cnt 66
+14.89		#diamInn
+29.7203		#diamOut
+69.0733		#growthRate
+92.0125		#growthAngle
+35885.5		#second inertia
+519.606		#section area
+6		#DOF
+43		#MAX_SEGM
+2.46691		#segLength
+#cnt 67
+12.8484		#diamInn
+26.456		#diamOut
+82.8561		#growthRate
+98.4265		#growthAngle
+22709.4		#second inertia
+420.059		#section area
+6		#DOF
+43		#MAX_SEGM
+2.95915		#segLength
+#cnt 68
+15.9252		#diamInn
+22.4693		#diamOut
+61.3182		#growthRate
+89.1443		#growthAngle
+9354.72		#second inertia
+197.337		#section area
+6		#DOF
+43		#MAX_SEGM
+2.18993		#segLength
+#cnt 69
+15.5627		#diamInn
+24.7129		#diamOut
+78.2162		#growthRate
+86.2225		#growthAngle
+15429.6		#second inertia
+289.443		#section area
+6		#DOF
+43		#MAX_SEGM
+2.79344		#segLength
+#cnt 70
+13.2354		#diamInn
+23.2924		#diamOut
+74.2697		#growthRate
+88.6655		#growthAngle
+12942.4		#second inertia
+288.525		#section area
+6		#DOF
+43		#MAX_SEGM
+2.65249		#segLength
+#cnt 71
+16.4183		#diamInn
+28.1327		#diamOut
+76.3804		#growthRate
+100.297		#growthAngle
+27181.1		#second inertia
+409.891		#section area
+6		#DOF
+43		#MAX_SEGM
+2.72787		#segLength
+#cnt 72
+14.2233		#diamInn
+22.6966		#diamOut
+74.987		#growthRate
+82.8229		#growthAngle
+11017.2		#second inertia
+245.7		#section area
+6		#DOF
+43		#MAX_SEGM
+2.67811		#segLength
+#cnt 73
+12.8718		#diamInn
+22.7057		#diamOut
+89.0561		#growthRate
+91.6426		#growthAngle
+11699.4		#second inertia
+274.781		#section area
+6		#DOF
+43		#MAX_SEGM
+3.18057		#segLength
+#cnt 74
+14.7132		#diamInn
+24.0771		#diamOut
+78.9887		#growthRate
+91.3786		#growthAngle
+14195.9		#second inertia
+285.279		#section area
+6		#DOF
+43		#MAX_SEGM
+2.82102		#segLength
+#cnt 75
+12.3793		#diamInn
+25.7279		#diamOut
+75.4371		#growthRate
+84.372		#growthAngle
+20354.7		#second inertia
+399.516		#section area
+6		#DOF
+43		#MAX_SEGM
+2.69418		#segLength
+#cnt 76
+12.2963		#diamInn
+27.7354		#diamOut
+91.4262		#growthRate
+84.9776		#growthAngle
+27925.3		#second inertia
+485.42		#section area
+6		#DOF
+43		#MAX_SEGM
+3.26522		#segLength
+#cnt 77
+14.6349		#diamInn
+22.0041		#diamOut
+72.2064		#growthRate
+94.8138		#growthAngle
+9255.73		#second inertia
+212.057		#section area
+6		#DOF
+43		#MAX_SEGM
+2.5788		#segLength
+#cnt 78
+13.359		#diamInn
+25.1162		#diamOut
+79.1833		#growthRate
+85.8139		#growthAngle
+17970.4		#second inertia
+355.283		#section area
+6		#DOF
+43		#MAX_SEGM
+2.82798		#segLength
+#cnt 79
+14.5365		#diamInn
+23.7195		#diamOut
+64.5692		#growthRate
+86.1629		#growthAngle
+13346		#second inertia
+275.913		#section area
+6		#DOF
+43		#MAX_SEGM
+2.30604		#segLength

@@ -1,0 +1,6 @@
+# Normalize line endings for all files detected as text.
+*                           text    eol=lf
+
+# Normalize line endings for all C files.
+*.c                         text    eol=lf
+*.h                         text    eol=lf

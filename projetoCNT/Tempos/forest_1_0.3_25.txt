@@ -1,5 +1,0 @@
-Num Inicial Contatos: 1496
-Tempo final de execucao: 0.000000
-Numero Final de contatos: 593
-Solution Tempo Final: 36 (V: 4.615491e+03 - C: 4.227864e+04)
-ViolacaoFinal: 4.615491e+03

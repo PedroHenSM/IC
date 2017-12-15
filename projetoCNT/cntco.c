@@ -23,7 +23,7 @@ int main(int argc, char* argv[]) {
 	double F = 0.7;
     double maxSec = 30;
     double bound[2]={-50,50};
-	int lMaxRun = 2000;
+	int lMaxRun = 50000;
 	int density = 5; // teste com 15 | 10 |10
     int seed  = 1; // teste com 1 | 1480577315 | 1
 	int c;
@@ -42,12 +42,13 @@ int main(int argc, char* argv[]) {
     	}
     }
     */
-    while ((c = getopt(argc, argv, "d:s:c:")) != -1) {
+    while ((c = getopt(argc, argv, "d:s:c:r:")) != -1) {
         //printf("Entrou leitura de parametro\n");
     	switch (c) {
 			case 'd': density = atoi(optarg); break;
     		case 's': seed = atoi(optarg); break;
     		case 'c': lDistance = atof(optarg); break;
+    		case 'r': read_solution = atoi(optarg); break;
     		//case 'p': lPopulationSize = atoi(optarg); break;
     		//case 'c': CR = atof(optarg); break;
     		//case 'f': F = atof(optarg); break;
@@ -56,10 +57,10 @@ int main(int argc, char* argv[]) {
     	}
     }
     char nameAtr[300],nameSim[300],nameSol[300];
-    sprintf(nameAtr,"/home/pedro/Área de Trabalho/Diversos/CNT/projetoCNT/data/attributes/forest_attributes_%i_%i_10.txt",seed,density);
-    sprintf(nameSim,"/home/pedro/Área de Trabalho/Diversos/CNT/projetoCNT/data/simulation/forest_simulation_%i_30_%i_10.txt",seed,density);
-    sprintf(nameSol,"/home/pedro/Área de Trabalho/Diversos/CNT/projetoCNT/data/solution/forest_solution_%i_hyp_%.1f_30_%i_10.txt",seed,lDistance,density);
-    sprintf(nameSol,"/home/pedro/Área de Trabalho/Diversos/CNT/contactscnt/Floresta25/solution/forest_solution_%i_hyp_%.1f_30_%i_10.txt",seed,lDistance,density);
+    sprintf(nameAtr,"/home/pedro/Documentos/GIT/projetoCNT/data/attributes/forest_attributes_%i_%i_10.txt",seed,density);
+    sprintf(nameSim,"/home/pedro/Documentos/GIT/projetoCNT/data/simulation/forest_simulation_%i_30_%i_10.txt",seed,density);
+    sprintf(nameSol,"/home/pedro/Documentos/GIT/projetoCNT/data/solution/forest_solution_%i_hyp_%.1f_30_%i_10.txt",seed,lDistance,density);
+    //sprintf(nameSol,"/home/pedro/Área de Trabalho/Diversos/CNT/contactscnt/Floresta25/solution/forest_solution_%i_hyp_%.1f_30_%i_10.txt",seed,lDistance,density);
     ///LILI
     lAttributeFile = nameAtr;
     lSimulationFile = nameSim;
@@ -90,7 +91,7 @@ int main(int argc, char* argv[]) {
     contact_list_t* lContacts = contact_lookup(lForest);
     printf("NumContatos: %i\n",lContacts->length);
     int numContatosInicial = contact_lookup_total(lForest);
-    printf("NumContatosInicial: %i",numContatosInicial);
+    printf("NumContatosInicial: %i\n",numContatosInicial);
     population_t* lPopulation = population_build(lPopulationSize, lContacts, lForest);
     population_init(lPopulation, lForest); // Inicializa violacao e custo da populacao
     printf("lPopulationSize: %i\n",lPopulation->size);
@@ -109,9 +110,9 @@ int main(int argc, char* argv[]) {
     double elapsed; // seconds
     int terminate =1;
     char endereco[300];
-    sprintf(endereco,"/home/pedro/Área de Trabalho/Diversos/CNT/projetoCNT/Tempos/forest_%i_%.1f_%i.txt",seed,lDistance,density);
+    sprintf(endereco,"/home/pedro/Documentos/GIT/projetoCNT/Tempos/forest_%i_%i_%.1f_%i.txt",read_solution,seed,lDistance,density);
     FILE* file = fopen(endereco,"w");
-    fprintf(file,"Num Inicial Contatos: %i\n",lContacts->length);
+    fprintf(file,"Num Inicial Contatos: %i\n",numContatosInicial);
     int lRun=0;
     while (++lRun <= lMaxRun) {
 		printf("Run %d with ", lRun);
@@ -181,7 +182,7 @@ int main(int argc, char* argv[]) {
 			if(lSolution.length == 0){
                 printf("Solucionada!\n");
                 char name4[300];
-                sprintf(name4,"/home/pedro/Área de Trabalho/Diversos/CNT/projetoCNT/Resultados/forest_solution_%i_fullt_%.1f_30_%i_10.txt",seed,lDistance,density);
+                sprintf(name4,"/home/pedro/Documentos/GIT/projetoCNT/Resultados/forest_solution_%i_%i_fullt_%.1f_30_%i_10.txt",read_solution,seed,lDistance,density);
                 forest_write_simulation(lForest,name4);
                 exit(1);
 			}
@@ -244,7 +245,7 @@ int main(int argc, char* argv[]) {
 	}
 
 	population_update_forest(lPopulation, lForest);
-
+    population_print_best(lPopulation);
 
 
     /*contact_list_destroy(lContacts);
@@ -271,8 +272,8 @@ int main(int argc, char* argv[]) {
 
     char name1[300];
     char name2[300];
-    sprintf(name1,"/home/pedro/Área de Trabalho/Diversos/CNT/projetoCNT/Resultados/forest_attributes_%i_fullt_%.1f_%i_10.txt",seed,lDistance,density);
-    sprintf(name2,"/home/pedro/Área de Trabalho/Diversos/CNT/projetoCNT/Resultados/forest_solution_%i_fullt_%.1f_30_%i_10.txt",seed,lDistance,density);
+    sprintf(name1,"/home/pedro/Documentos/GIT/projetoCNT/Resultados/forest_attributes_%i_%i_fullt_%.1f_%i_10.txt",read_solution,seed,lDistance,density);
+    sprintf(name2,"/home/pedro/Documentos/GIT/projetoCNT/Resultados/forest_solution_%i_%i_fullt_%.1f_30_%i_10.txt",read_solution,seed,lDistance,density);
     forest_write_attributes(lForest,name1);
     forest_write_simulation(lForest,name2);
 

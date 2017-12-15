@@ -104,3 +104,14 @@
 	"contact.h"
 	"forest.h"
 
+1513306010 source:/home/pedro/Documentos/GIT/projetoCNT/cntco.c
+	<getopt.h>
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<time.h>
+	<unistd.h>
+	"contact.h"
+	"forest.h"
+	"population.h"
+

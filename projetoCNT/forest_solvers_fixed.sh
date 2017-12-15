@@ -14,7 +14,7 @@ seeds15=(1479655606  1479665379  1479675327  1479685275  1479734309  1480380603 
 
 seeds25=(1479657997 1479667867 1479677816 1479687750 1479736734 1480381788 1480386446 1480391005 1480395518 1480400006 1480458958 1480464940  1480470929 1480476938 1480482935 1480488930 1480494933 1480500927 1480506922 1480542709 1480547314 1480551920 1480556530 1480561144 1480565757 1480570378 1480575003 1480579632 1480584250 1) # seeds para a floresta de densidade 25 
 
-
+# Colocar while do read_solution ( para ler ou não a solução da lili)
 d=3
 while(($d<$totalDensities))
 do
@@ -30,6 +30,7 @@ do
 		do
 			echo $c 'critical' ${criticals[c]}
 			/home/pedro/Área\ de\ Trabalho/Diversos/CNT/projetoCNT/exec "-d" ${densities[d]} "-s" ${seed[s]} "-c" ${criticals[c]}
+			#Adicionar "-r" ${read_solution[r]} na linha de cima, como parametro do codigo em c
 			#/home/pedro/Área\ de\ Trabalho/Diversos/CNT/projetoCNT/exec "-d" 25 "-s" ${seed[s]} "-c" ${criticals[c]}
 			#/home/pedro/Área\ de\ Trabalho/Diversos/CNT/projetoCNT/exec r ${densities[d]} ${seed[s]} ${criticals[c]}
 			#/home/liliane/Documentos/GIT/gcgtube/build/Release/Visualizer r ${densities[d]} $seed 10 ${criticals[c]} ${methods[m]}

@@ -23,7 +23,7 @@ int main(int argc, char* argv[]) {
 	double F = 0.7;
     double maxSec = 30;
     double bound[2]={-50,50};
-	int lMaxRun = 1000;
+	int lMaxRun = 2000;
 	int density = 5; // teste com 15 | 10 |10
     int seed  = 1; // teste com 1 | 1480577315 | 1
 	int c;

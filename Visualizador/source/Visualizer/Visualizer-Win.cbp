@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Visualizer-Win" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="../../build/Debug/Visualizer" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="../../build/Debug" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option use_console_runner="0" />
+				<Option parameters="../../forest_simulation_27.txt ../../algumacoisa" />
+				<Compiler>
+					<Add option="-std=c++11" />
+					<Add option="-Wall" />
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add library="..\..\lib\libLibraryd.a" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="../../build/Release/Game" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="../../build/Release" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option use_console_runner="0" />
+				<Compiler>
+					<Add option="-fexpensive-optimizations" />
+					<Add option="-O3" />
+					<Add option="-Wall" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="Library" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-std=c++11" />
+			<Add directory="../Library/include" />
+			<Add directory="../../external/include" />
+		</Compiler>
+		<Linker>
+			<Add library="glu32" />
+			<Add library="opengl32" />
+			<Add library="glew32" />
+			<Add library="glfw3" />
+			<Add directory="../../lib" />
+			<Add directory="../../external/bin" />
+			<Add directory="../../external/lib" />
+		</Linker>
+		<Unit filename="CatmullRom.cpp" />
+		<Unit filename="CatmullRom.h" />
+		<Unit filename="DrawableNanotube.cpp" />
+		<Unit filename="DrawableNanotube.h" />
+		<Unit filename="DrawableSpheres.cpp" />
+		<Unit filename="DrawableSpheres.h" />
+		<Unit filename="NanotubeMaterial.cpp" />
+		<Unit filename="NanotubeMaterial.h" />
+		<Unit filename="OrbitCamera.cpp" />
+		<Unit filename="OrbitCamera.h" />
+		<Unit filename="Source.cpp" />
+		<Unit filename="Visualizer.cpp" />
+		<Unit filename="Visualizer.h" />
+		<Unit filename="nanotube.cpp" />
+		<Unit filename="nanotube.h" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+			<envvars />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

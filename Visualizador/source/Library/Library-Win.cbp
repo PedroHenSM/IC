@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Library-Win" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Script file="lib_finder.script" />
+			<Target title="Debug">
+				<Option output="../../lib/Libraryd" imp_lib="../../lib/Libraryd.a" def_file="$(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME).def" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="../../lib" />
+				<Option object_output="obj/Debug/" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createStaticLib="1" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="../../lib/Library" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="../../lib" />
+				<Option object_output="obj/Release/" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-fexpensive-optimizations" />
+					<Add option="-O3" />
+					<Add option="-Wall" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-std=c++11" />
+			<Add directory="../../external/include" />
+			<Add directory="include" />
+		</Compiler>
+		<Linker>
+			<Add library="glfw3" />
+			<Add library="glew32" />
+			<Add library="opengl32" />
+			<Add library="glu32" />
+			<Add directory="../../lib" />
+			<Add directory="../../external/lib" />
+			<Add directory="../../external/lib/" />
+		</Linker>
+		<Unit filename="Camera.cpp" />
+		<Unit filename="DrawableComponent.cpp" />
+		<Unit filename="Framebuffer.cpp" />
+		<Unit filename="GBuffer.cpp" />
+		<Unit filename="Image.cpp" />
+		<Unit filename="Keyboard.cpp" />
+		<Unit filename="Material.cpp" />
+		<Unit filename="MaterialManager.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="Mesh.bak.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="Mesh.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="Model.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="Mouse.cpp" />
+		<Unit filename="Renderer.cpp" />
+		<Unit filename="RendererClock.cpp" />
+		<Unit filename="RendererComponent.cpp" />
+		<Unit filename="RendererException.cpp" />
+		<Unit filename="RendererObject.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="RendererTime.cpp" />
+		<Unit filename="ServiceContainer.cpp" />
+		<Unit filename="Shader.cpp" />
+		<Unit filename="Text2D.cpp" />
+		<Unit filename="Texture.cpp" />
+		<Unit filename="Transform.cpp" />
+		<Unit filename="Utility.cpp" />
+		<Unit filename="VectorHelper.cpp" />
+		<Unit filename="include/Camera.h" />
+		<Unit filename="include/Common.h" />
+		<Unit filename="include/DrawableComponent.h" />
+		<Unit filename="include/Framebuffer.h" />
+		<Unit filename="include/GBuffer.h" />
+		<Unit filename="include/Image.h" />
+		<Unit filename="include/Keyboard.h" />
+		<Unit filename="include/Material.h" />
+		<Unit filename="include/MaterialManager.h" />
+		<Unit filename="include/Mesh.h" />
+		<Unit filename="include/Model.h" />
+		<Unit filename="include/ModelMaterial.h" />
+		<Unit filename="include/Mouse.h" />
+		<Unit filename="include/RTTI.h" />
+		<Unit filename="include/Renderer.h" />
+		<Unit filename="include/RendererClock.h" />
+		<Unit filename="include/RendererComponent.h" />
+		<Unit filename="include/RendererException.h" />
+		<Unit filename="include/RendererObject.h" />
+		<Unit filename="include/RendererTime.h" />
+		<Unit filename="include/ScreenPass.h" />
+		<Unit filename="include/ServiceContainer.h" />
+		<Unit filename="include/Shader.h" />
+		<Unit filename="include/Text2D.h" />
+		<Unit filename="include/Texture.h" />
+		<Unit filename="include/Transform.h" />
+		<Unit filename="include/Utility.h" />
+		<Unit filename="include/VectorHelper.h" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+			<envvars />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

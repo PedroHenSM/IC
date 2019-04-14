@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Visualizer-Linux" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="../../build/Debug/Visualizer" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="../../build/Debug" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option use_console_runner="0" />
+				<Option parameters="l 5 1479660410 10 forest_solution_1479660410_de_0.3_30_5_10.txt" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-g" />
+					<Add directory="include" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="../../build/Release/Visualizer" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="../../build/Release" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option use_console_runner="0" />
+				<Option parameters="m 5 1479660410 10 0.3 DIRECT" />
+				<Compiler>
+					<Add option="-march=core2" />
+					<Add option="-fexpensive-optimizations" />
+					<Add option="-O3" />
+					<Add option="-Wall" />
+					<Add option="-std=c++11" />
+					<Add option="-fPIC" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-std=c++11" />
+			<Add directory="../Library/include" />
+			<Add directory="../../external/include" />
+			<Add directory="/home/liliane/Documentos/Libs/glfw-3.2.1/build/install/include" />
+			<Add directory="/usr/include/freetype2" />
+			<Add directory="/home/liliane/Documentos/Libs/glew-2.1.0/build/cmake/build/install/include" />
+		</Compiler>
+		<Linker>
+			<Add library="GLEW" />
+			<Add library="glfw" />
+			<Add library="GL" />
+			<Add library="X11" />
+			<Add library="pthread" />
+			<Add library="Xrandr" />
+			<Add library="Xi" />
+			<Add library="Xcursor" />
+			<Add library="gsl" />
+			<Add library="gslcblas" />
+			<Add library="/usr/lib/libfreetype.so" />
+			<Add library="/usr/lib/libpng16.so" />
+			<Add library="/usr/lib/libz.a" />
+			<Add library="/home/pedrohen/Documentos/gcgtubes20_04/Visualizador/lib/libLibrary.so" />
+			<Add directory="/home/liliane/Documentos/Libs/glew-2.1.0/build/cmake/build/install/lib" />
+			<Add directory="/home/liliane/Documentos/Libs/glfw-3.2.1/build/install/lib" />
+			<Add directory="/home/liliane/Documentos/SVN/Nanotubos/gcgtubeHal9000/lib" />
+			<Add directory="../../lib" />
+			<Add directory="/home/pedrohen/Documentos/gcgtubes20_04/Visualizador/lib" />
+		</Linker>
+		<Unit filename="../Library/Text2D.cpp" />
+		<Unit filename="../Library/include/Text2D.h" />
+		<Unit filename="Block.cpp" />
+		<Unit filename="Block.h" />
+		<Unit filename="CatmullRom.cpp" />
+		<Unit filename="CatmullRom.h" />
+		<Unit filename="Contact.cpp" />
+		<Unit filename="Contact.h" />
+		<Unit filename="DrawableNanotube.cpp" />
+		<Unit filename="DrawableNanotube.h" />
+		<Unit filename="DrawableSpheres.cpp" />
+		<Unit filename="DrawableSpheres.h" />
+		<Unit filename="Forest.cpp" />
+		<Unit filename="Forest.h" />
+		<Unit filename="Graph.cpp" />
+		<Unit filename="Graph.h" />
+		<Unit filename="Laplacian.cpp" />
+		<Unit filename="Laplacian.h" />
+		<Unit filename="LinearSolver.cpp" />
+		<Unit filename="LinearSolver.h" />
+		<Unit filename="NanotubeMaterial.cpp" />
+		<Unit filename="NanotubeMaterial.h" />
+		<Unit filename="OrbitCamera.cpp" />
+		<Unit filename="OrbitCamera.h" />
+		<Unit filename="Source.cpp" />
+		<Unit filename="SuperBlock.cpp" />
+		<Unit filename="SuperBlock.h" />
+		<Unit filename="Visualizer.cpp" />
+		<Unit filename="Visualizer.h" />
+		<Unit filename="VisualizerCommon.cpp" />
+		<Unit filename="VisualizerCommon.h" />
+		<Unit filename="gcg.h" />
+		<Unit filename="nanotube.cpp" />
+		<Unit filename="nanotube.h" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+			<envvars />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

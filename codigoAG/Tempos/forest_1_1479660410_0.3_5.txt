@@ -1,0 +1,4 @@
+Num Inicial Contatos: 7
+Tempo final de execucao: 0.000000
+Numero Final de contatos: 22
+Solution Tempo Final: 31 (V: 0.000000e+00 - C: 1.932504e+02)

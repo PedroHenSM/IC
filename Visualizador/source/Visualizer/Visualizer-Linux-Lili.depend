@@ -1,0 +1,314 @@
+# depslib dependency file v1.0
+1482598894 source:/home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Library/Text2D.cpp
+	"Text2D.h"
+	<cstdio>
+	<cstring>
+	"RendererException.h"
+	"Utility.h"
+
+1482598894 /home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Library/include/Text2D.h
+	<cstdarg>
+	"Renderer.h"
+	"Texture.h"
+	"Shader.h"
+	<ft2build.h>
+
+1482598894 /home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Library/include/Renderer.h
+	"Common.h"
+	"RendererTime.h"
+	"RendererClock.h"
+	"ServiceContainer.h"
+	"GBuffer.h"
+	"Shader.h"
+	"RendererObject.h"
+
+1544783858 /home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Library/include/Common.h
+	<string>
+	<vector>
+	<map>
+	<memory>
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	<glm/vec3.hpp>
+	<glm/vec4.hpp>
+	<glm/mat4x4.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<glm/gtc/quaternion.hpp>
+	<exception>
+	"RendererException.h"
+	"RTTI.h"
+
+1482598894 /home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Library/include/RendererException.h
+	"Common.h"
+
+1482598894 /home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Library/include/RTTI.h
+	<string>
+	<typeinfo>
+	<typeindex>
+
+1482598894 /home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Library/include/RendererTime.h
+
+1482598894 /home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Library/include/RendererClock.h
+	<chrono>
+
+1482598894 /home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Library/include/ServiceContainer.h
+	"Common.h"
+
+1482598894 /home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Library/include/GBuffer.h
+	"Common.h"
+	"Framebuffer.h"
+
+1482598894 /home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Library/include/Framebuffer.h
+	"Common.h"
+
+1482598894 /home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Library/include/Shader.h
+	"Common.h"
+
+1482598894 /home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Library/include/RendererObject.h
+	"DrawableComponent.h"
+	"Transform.h"
+
+1482598894 /home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Library/include/DrawableComponent.h
+	"RendererComponent.h"
+
+1482598894 /home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Library/include/RendererComponent.h
+	"Common.h"
+
+1482598894 /home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Library/include/Transform.h
+	"Common.h"
+
+1482598894 /home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Library/include/Texture.h
+	"Common.h"
+
+1481402544 /home/pedrohen/Documentos/gcgtubes20_04/Visualizador/external/include/ft2build.h
+	<freetype/config/ftheader.h>
+
+1525259718 /usr/include/freetype2/freetype/config/ftheader.h
+
+1482598894 /home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Library/include/Utility.h
+	"Common.h"
+
+1482598894 source:/home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Visualizer/Block.cpp
+	"Block.h"
+	<algorithm>
+	<iostream>
+	<fstream>
+	<sstream>
+
+1482598894 /home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Visualizer/Block.h
+	"Common.h"
+	"Contact.h"
+	<vector>
+
+1545350496 /home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Visualizer/Contact.h
+	"DrawableNanotube.h"
+	"DrawableSpheres.h"
+
+1482598894 /home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Visualizer/DrawableNanotube.h
+	"DrawableComponent.h"
+	"NanotubeMaterial.h"
+	"Transform.h"
+	"CatmullRom.h"
+	"Texture.h"
+
+1482598894 /home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Visualizer/NanotubeMaterial.h
+	"Material.h"
+	"DrawableNanotube.h"
+
+1482598894 /home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Library/include/Material.h
+	"Common.h"
+
+1545303420 /home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Visualizer/CatmullRom.h
+	<vector>
+	<glm/glm.hpp>
+	"gcg.h"
+	<gsl/gsl_vector.h>
+
+1482598894 /home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Visualizer/gcg.h
+	<stdio.h>
+	<math.h>
+	<new>
+	"gcg.h"
+
+1482598894 /home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Visualizer/DrawableSpheres.h
+	"DrawableComponent.h"
+	"Shader.h"
+	"Transform.h"
+
+1545303422 source:/home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Visualizer/CatmullRom.cpp
+	"CatmullRom.h"
+	<cmath>
+	<iostream>
+	<gsl/gsl_multiroots.h>
+
+1550187768 source:/home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Visualizer/Contact.cpp
+	"Contact.h"
+	"VisualizerCommon.h"
+	"Utility.h"
+	<iostream>
+	<fstream>
+	<sstream>
+
+1482598894 /home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Visualizer/VisualizerCommon.h
+	"Visualizer.h"
+	<iostream>
+	<gsl/gsl_linalg.h>
+	<gsl/gsl_eigen.h>
+	<gsl/gsl_blas.h>
+
+1545348350 /home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Visualizer/Visualizer.h
+	"Forest.h"
+	"Renderer.h"
+	"DrawableNanotube.h"
+	"NanotubeMaterial.h"
+	"OrbitCamera.h"
+	"DrawableSpheres.h"
+	"Text2D.h"
+	<gsl/gsl_vector.h>
+	<gsl/gsl_matrix.h>
+	<list>
+
+1545002228 /home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Visualizer/Forest.h
+	"DrawableNanotube.h"
+	"OrbitCamera.h"
+	"Contact.h"
+	"SuperBlock.h"
+
+1482598894 /home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Visualizer/OrbitCamera.h
+	"Common.h"
+	"Camera.h"
+
+1482598894 /home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Library/include/Camera.h
+	"RendererComponent.h"
+
+1482598894 /home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Visualizer/SuperBlock.h
+	"Block.h"
+	"Contact.h"
+	"DrawableNanotube.h"
+	"Graph.h"
+	<vector>
+
+1482598894 /home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Visualizer/Graph.h
+	"Contact.h"
+	<gsl/gsl_matrix.h>
+
+1545000808 source:/home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Visualizer/DrawableNanotube.cpp
+	"DrawableNanotube.h"
+	"Shader.h"
+	"RendererTime.h"
+	"Camera.h"
+	"Material.h"
+	<iostream>
+	<cstdlib>
+	<cmath>
+	<ctime>
+
+1482598894 source:/home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Visualizer/DrawableSpheres.cpp
+	"DrawableSpheres.h"
+	<GL/glu.h>
+	<iostream>
+
+1545302594 source:/home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Visualizer/Forest.cpp
+	"Forest.h"
+	<iostream>
+	<fstream>
+	<sstream>
+
+1483101000 source:/home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Visualizer/Graph.cpp
+	"Graph.h"
+	"LinearSolver.h"
+	"Laplacian.h"
+	"VisualizerCommon.h"
+	<iostream>
+	<algorithm>
+	<vector>
+	<iostream>
+	<fstream>
+	<sstream>
+
+1482598894 /home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Visualizer/LinearSolver.h
+	<gsl/gsl_matrix.h>
+	<gsl/gsl_vector.h>
+
+1482598894 /home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Visualizer/Laplacian.h
+	"DrawableNanotube.h"
+	"LinearSolver.h"
+	"Graph.h"
+
+1482598894 source:/home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Visualizer/Laplacian.cpp
+	"Laplacian.h"
+	<iostream>
+	<algorithm>
+	"gcg.h"
+
+1482598894 source:/home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Visualizer/LinearSolver.cpp
+	"LinearSolver.h"
+	<iostream>
+	<algorithm>
+	<gsl/gsl_linalg.h>
+	<gsl/gsl_eigen.h>
+	<gsl/gsl_blas.h>
+	<gsl/gsl_errno.h>
+	"gcg.h"
+
+1482598894 source:/home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Visualizer/nanotube.cpp
+	"nanotube.h"
+	<cmath>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1482598894 /home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Visualizer/nanotube.h
+	<glm/glm.hpp>
+	<cstdio>
+
+1482598894 source:/home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Visualizer/NanotubeMaterial.cpp
+	"NanotubeMaterial.h"
+	"Shader.h"
+
+1482598894 source:/home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Visualizer/OrbitCamera.cpp
+	"OrbitCamera.h"
+	"Common.h"
+
+1482598894 source:/home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Visualizer/Source.cpp
+	<memory>
+	"Visualizer.h"
+	"Utility.h"
+	<iostream>
+	<cstring>
+	<crtdbg.h>
+
+1482598894 source:/home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Visualizer/SuperBlock.cpp
+	"SuperBlock.h"
+	<iostream>
+	<fstream>
+	<sstream>
+	<algorithm>
+	<string>
+	<cstring>
+
+1545351332 source:/home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Visualizer/Visualizer.cpp
+	"Visualizer.h"
+	"Utility.h"
+	"Mouse.h"
+	"Keyboard.h"
+	<iostream>
+	<fstream>
+	<sstream>
+	<algorithm>
+	<gsl/gsl_multiroots.h>
+	<gsl/gsl_multimin.h>
+	<gsl/gsl_linalg.h>
+	<gsl/gsl_eigen.h>
+	<gsl/gsl_blas.h>
+	<sys/stat.h>
+
+1482598894 /home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Library/include/Mouse.h
+	"RendererComponent.h"
+
+1482598894 /home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Library/include/Keyboard.h
+	"RendererComponent.h"
+
+1482598894 source:/home/pedrohen/Documentos/gcgtubes20_04/Visualizador/source/Visualizer/VisualizerCommon.cpp
+	"VisualizerCommon.h"
+

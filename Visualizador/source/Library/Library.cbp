@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Library" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="../../lib/libLibraryd.a" prefix_auto="0" extension_auto="0" />
+				<Option working_dir="" />
+				<Option object_output="obj/Debug/" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-std=c++11" />
+					<Add option="-Wall" />
+					<Add option="-g" />
+					<Add option="-fPIC" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="../../lib/Library" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="../../lib" />
+				<Option object_output="obj/Release/" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-std=c++11" />
+			<Add directory="../../external/include" />
+			<Add directory="/usr/local/include/assimp" />
+		</Compiler>
+		<Linker>
+			<Add option="-shared" />
+			<Add library="GLEW" />
+			<Add library="glfw" />
+			<Add library="GL" />
+			<Add library="X11" />
+			<Add library="pthread" />
+			<Add library="Xrandr" />
+			<Add library="Xcursor" />
+			<Add library="Xinerama" />
+			<Add library="Xi" />
+			<Add library="assimp" />
+			<Add directory="../../lib" />
+		</Linker>
+		<Unit filename="Camera.cpp" />
+		<Unit filename="Camera.h" />
+		<Unit filename="Common.h" />
+		<Unit filename="DrawableComponent.cpp" />
+		<Unit filename="DrawableComponent.h" />
+		<Unit filename="Image.cpp" />
+		<Unit filename="Image.h" />
+		<Unit filename="Keyboard.cpp" />
+		<Unit filename="Keyboard.h" />
+		<Unit filename="Material.cpp" />
+		<Unit filename="Material.h" />
+		<Unit filename="Mesh.cpp" />
+		<Unit filename="Mesh.h" />
+		<Unit filename="Mouse.cpp" />
+		<Unit filename="Mouse.h" />
+		<Unit filename="RTTI.h" />
+		<Unit filename="Renderer.cpp" />
+		<Unit filename="Renderer.h" />
+		<Unit filename="RendererClock.cpp" />
+		<Unit filename="RendererClock.h" />
+		<Unit filename="RendererComponent.cpp" />
+		<Unit filename="RendererComponent.h" />
+		<Unit filename="RendererException.cpp" />
+		<Unit filename="RendererException.h" />
+		<Unit filename="RendererObject.cpp" />
+		<Unit filename="RendererObject.h" />
+		<Unit filename="RendererTime.cpp" />
+		<Unit filename="RendererTime.h" />
+		<Unit filename="ServiceContainer.cpp" />
+		<Unit filename="ServiceContainer.h" />
+		<Unit filename="Shader.cpp" />
+		<Unit filename="Shader.h" />
+		<Unit filename="Texture.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="Texture.h" />
+		<Unit filename="Transform.cpp" />
+		<Unit filename="Transform.h" />
+		<Unit filename="Utility.cpp" />
+		<Unit filename="Utility.h" />
+		<Unit filename="VectorHelper.cpp" />
+		<Unit filename="VectorHelper.h" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+			<envvars />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

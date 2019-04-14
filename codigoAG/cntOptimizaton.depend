@@ -1,0 +1,121 @@
+# depslib dependency file v1.0
+1554161027 source:/home/pedrohen/Documentos/gcgtubes20_04/codigoAG/cntco.c
+	<getopt.h>
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<time.h>
+	<unistd.h>
+	<string.h>
+	"contact.h"
+	"forest.h"
+	"population.h"
+
+1545345562 /home/pedrohen/Documentos/gcgtubes20_04/codigoAG/contact.h
+	"forest.h"
+
+1507504844 /home/pedrohen/Documentos/gcgtubes20_04/codigoAG/forest.h
+	"nanotube.h"
+	"point.h"
+
+1507504844 /home/pedrohen/Documentos/gcgtubes20_04/codigoAG/nanotube.h
+	"point.h"
+
+1507504844 /home/pedrohen/Documentos/gcgtubes20_04/codigoAG/point.h
+
+1513270130 /home/pedrohen/Documentos/gcgtubes20_04/codigoAG/population.h
+	"contact.h"
+	"forest.h"
+
+1554160526 source:/home/pedrohen/Documentos/gcgtubes20_04/codigoAG/contact.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	"contact.h"
+	"forest.h"
+	"point.h"
+
+1545303176 source:/home/pedrohen/Documentos/gcgtubes20_04/codigoAG/forest.c
+	<errno.h>
+	<fcntl.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<unistd.h>
+	"forest.h"
+
+1507504844 source:/home/pedrohen/Documentos/gcgtubes20_04/codigoAG/nanotube.c
+	"nanotube.h"
+
+1513283486 source:/home/pedrohen/Documentos/gcgtubes20_04/codigoAG/point.c
+	<math.h>
+	"point.h"
+
+1513712086 source:/home/pedrohen/Documentos/gcgtubes20_04/codigoAG/population.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"forest.h"
+	"point.h"
+	"population.h"
+
+1555265238 source:/home/pedrohen/Documentos/cntCode/codigoAG/cntco.c
+	<getopt.h>
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<time.h>
+	<unistd.h>
+	<string.h>
+	"contact.h"
+	"forest.h"
+	"population.h"
+
+1545345562 /home/pedrohen/Documentos/cntCode/codigoAG/contact.h
+	"forest.h"
+
+1507504844 /home/pedrohen/Documentos/cntCode/codigoAG/forest.h
+	"nanotube.h"
+	"point.h"
+
+1507504844 /home/pedrohen/Documentos/cntCode/codigoAG/nanotube.h
+	"point.h"
+
+1507504844 /home/pedrohen/Documentos/cntCode/codigoAG/point.h
+
+1513270130 /home/pedrohen/Documentos/cntCode/codigoAG/population.h
+	"contact.h"
+	"forest.h"
+
+1554160526 source:/home/pedrohen/Documentos/cntCode/codigoAG/contact.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	"contact.h"
+	"forest.h"
+	"point.h"
+
+1545303176 source:/home/pedrohen/Documentos/cntCode/codigoAG/forest.c
+	<errno.h>
+	<fcntl.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<unistd.h>
+	"forest.h"
+
+1507504844 source:/home/pedrohen/Documentos/cntCode/codigoAG/nanotube.c
+	"nanotube.h"
+
+1513283486 source:/home/pedrohen/Documentos/cntCode/codigoAG/point.c
+	<math.h>
+	"point.h"
+
+1513712086 source:/home/pedrohen/Documentos/cntCode/codigoAG/population.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"forest.h"
+	"point.h"
+	"population.h"
+

@@ -1,4 +1,0 @@
-Num Inicial Contatos: 104
-Tempo final de execucao: 0.000000
-Numero Final de contatos: 59
-Solution Tempo Final: 43 (V: 3.891763e+02 - C: 1.886373e+03)

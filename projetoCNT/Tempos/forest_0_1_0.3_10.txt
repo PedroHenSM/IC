@@ -1,4 +1,0 @@
-Num Inicial Contatos: 578
-Tempo final de execucao: 0.000000
-Numero Final de contatos: 158
-Solution Tempo Final: 10 (V: 1.033968e+03 - C: 2.911979e+04)

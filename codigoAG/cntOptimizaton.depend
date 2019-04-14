@@ -59,7 +59,7 @@
 	"point.h"
 	"population.h"
 
-1555265238 source:/home/pedrohen/Documentos/cntCode/codigoAG/cntco.c
+1555268357 source:/home/pedrohen/Documentos/cntCode/codigoAG/cntco.c
 	<getopt.h>
 	<stdlib.h>
 	<stdio.h>
@@ -87,7 +87,7 @@
 	"contact.h"
 	"forest.h"
 
-1554160526 source:/home/pedrohen/Documentos/cntCode/codigoAG/contact.c
+1555269040 source:/home/pedrohen/Documentos/cntCode/codigoAG/contact.c
 	<stdio.h>
 	<stdlib.h>
 	<math.h>

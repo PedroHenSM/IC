@@ -130,7 +130,7 @@ void contact_list_destroy(contact_list_t* pContactList) {
 /// LILI
 void contact_write_remaining(contact_list_t *pContactList, char pContactFile[], forest_t *pForest)
 {
-    FILE* lFile = fopen(pContactFile, "w");
+    FILE* lFile = fopen(pContactFile, "a");
 	if (lFile != NULL)
 	{
 		fprintf(lFile,"# cnt1.ind1 cnt2.ind2 radius1 radius2 distance (distance-radius1-radius2)\n");

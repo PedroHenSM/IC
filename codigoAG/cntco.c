@@ -26,7 +26,7 @@ int main(int argc, char* argv[]) {
 	int lMaxRun = 10000;    /// 10000 | 1k da menos contatos que 10k (5x7) 300it =4contacts | 400it = 5contacts menos ostensivo
                             /// ostensivo 300it = 4 contacts | 400it = ? realizar teste
 	int density = 5; // teste com 15 | 10 |10
-    int seed  = 1479660410; /// Seed 1479660410 densidade 5 com 10k iteracoes num contatos # visualizador
+    int seed  = 1; /// Seed 1479660410 densidade 5 com 10k iteracoes num contatos # visualizador
 	int c;
     /*
         while ((c = getopt(argc, argv, "l:s:a:d:p:c:f:r:")) != -1) {
@@ -142,8 +142,8 @@ int main(int argc, char* argv[]) {
 
     forest_write_simulation(lForest,testName);
     ///abort();  /// OPS
-    int numContatosInicial = contact_lookup_total(lForest);
-    printf("NumContatosInicial: %i\n",numContatosInicial);
+    int initialNumContacts = contact_lookup_total(lForest);
+    printf("InitialNumContacts: %i\n", initialNumContacts);
     printf("lDistance: %.1f\n",lDistance);
     population_t* lPopulation = population_build(lPopulationSize, lContacts, lForest);
     population_init(lPopulation, lForest); // Inicializa violacao e custo da populacao
@@ -178,7 +178,7 @@ int main(int argc, char* argv[]) {
     printf("endereco:\t%s\n", endereco);
 
     FILE* file = fopen(endereco,"w");
-    fprintf(file,"Num Inicial Contatos: %i\n",numContatosInicial);
+    fprintf(file,"InitialNumContacts: %i\n",initialNumContacts);
     int lRun=0;
     while (++lRun < lMaxRun) {
 		printf("Run %d with ", lRun);
@@ -328,23 +328,25 @@ int main(int argc, char* argv[]) {
     forest_write_simulation(lForest,testName);
     exit(5);*/
 	population_update_forest(lPopulation, lForest);
-    population_print_best(lPopulation);
+    // population_print_best(lPopulation);
 
-
+    /*
     contact_list_destroy(lContacts);
     free(lContacts);
     printf(" CONTATOS APÒS EVOLUIR POPULACAO\n");
     lContacts = contact_lookup(lForest);
-
+    */
+    lContacts = contact_lookup(lForest); // updates lContacts for printing remaining contacts
 	idxBest = population_best_index(lPopulation);
     //lSolution.violation = population_calc_violation(lPopulation, &lSolution, lForest);
     //printf("lSolution.violation: %lf\n",lSolution.violation);
 
 
 
-
-    printf("NumContatosInicial: %i\nNumContatosFinal: %i\n",numContatosInicial,contact_lookup_total(lForest));
+    printf("Read Solution: %i\n", read_solution);
+    printf("InitialNumContacts: %i\nFinalNumContatcs: %i\n",initialNumContacts,contact_lookup_total(lForest));
     printf("lDistance: %.2f\n",lDistance);
+    printf("Final Solution: Solution %i (V: %e - C: %e)\n", idxBest, lPopulation->solutions[idxBest].violation, lPopulation->solutions[idxBest].cost);
 	fprintf(file, "Tempo final de execucao: %f\n",elapsed);
 	fprintf(file,"Numero Final de contatos: %i\n",contact_lookup_total(lForest));
     fprintf(file,"Solution Tempo Final: %i (V: %e - C: %e)\n",idxBest,lPopulation->solutions[idxBest].violation,lPopulation->solutions[idxBest].cost);
@@ -359,10 +361,17 @@ int main(int argc, char* argv[]) {
     strcat(aux, remaining);
     strcpy(remaining, aux);
     printf("remaining:\t%s\n", remaining);
+    FILE* arq = fopen(remaining, "w");
+    fprintf(arq, "Read Solution: %i\n", read_solution);
+    fprintf(arq, "InitialNumContacts: %i\nFinalNumContacts: %i\n",initialNumContacts,contact_lookup_total(lForest));
+    fprintf(arq, "lDistance: %.2f\n",lDistance);
+    fprintf(arq, "Final Solution: Solution %i (V: %e - C: %e)\n", idxBest, lPopulation->solutions[idxBest].violation, lPopulation->solutions[idxBest].cost);
+    fclose(arq);
     contact_write_remaining(lContacts, remaining, lForest);
     /// LILI end
 
     /// Just for tests
+    /*
     FILE* arq = fopen(remaining, "a");
     if (arq == NULL){
         printf("Nao foi possivel encontrar o arquivo\n");
@@ -371,6 +380,7 @@ int main(int argc, char* argv[]) {
     else{
         fprintf(arq,"Solution Tempo Final: %i (V: %e - C: %e)\n",idxBest,lPopulation->solutions[idxBest].violation,lPopulation->solutions[idxBest].cost);
     }
+    */
     fclose(arq);
     /// End just for tests
 

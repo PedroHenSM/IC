@@ -13,4 +13,10 @@
 
 #LD_LIBRARY_PATH=$LD_LIBRARY_PATH:.:/home/pedrohen/Documentos/gcgtubes/Visualizador/lib /home/pedrohen/Documentos/gcgtubes/Visualizador/build/Release/Visualizer l 5 1479660410 10 forest_solution_1479660410_de_0.3_30_5_10.txt
 
-/home/pedrohen/Documentos/gcgtubes20_04/Visualizador/build/Release/Visualizer l 5 1479660410 10 forest_solution_1479660410_de_0.3_30_5_10.txt
+# /home/pedrohen/Documentos/gcgtubes20_04/Visualizador/build/Release/Visualizer l 5 1479660410 10 forest_solution_1479660410_de_0.3_30_5_10.txt
+
+# /home/pedrohen/Documentos/cntCode/Visualizador/build/Release/Visualizer l 5 1 10 forest_solution_1_de_0.3_30_5_10.txt
+
+# /home/pedrohen/Documentos/cntCode/Visualizador/build/Release/Visualizer l 5 1479660410 10 forest_solution_1479660410_de_0.3_30_5_10.txt
+
+/home/pedrohen/Documentos/cntCode/Visualizador/build/Debug/Visualizer l 5 1 10 forest_solution_1_dir_0.1_30_5_10.txt

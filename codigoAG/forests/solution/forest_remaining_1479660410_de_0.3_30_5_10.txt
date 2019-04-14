@@ -1,3 +1,8 @@
+Read Solution: 0
+InitialNumContacts: 187
+FinalNumContacts: 7
+lDistance: 0.30
+Final Solution: Solution 13 (V: 7.172497e+01 - C: 9.193810e+03)
 # cnt1.ind1 cnt2.ind2 radius1 radius2 distance (distance-radius1-radius2)
 Number of Contacts: 7
 9 26 10 29 13.78565000 13.38340000 14.48492201 -12.68412799
@@ -7,4 +12,3 @@ Number of Contacts: 7
 48 24 49 29 15.10365000 13.09905000 28.20270000 -0.00000000
 72 18 73 21 12.37990000 12.38530000 24.76519999 -0.00000001
 72 18 73 22 12.37990000 12.38530000 6.15694104 -18.60825896
-Solution Tempo Final: 13 (V: 7.172497e+01 - C: 9.193810e+03)

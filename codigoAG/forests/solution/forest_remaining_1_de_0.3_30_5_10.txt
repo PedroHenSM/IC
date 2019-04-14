@@ -1,0 +1,8 @@
+Read Solution: 0
+InitialNumContacts: 104
+FinalNumContacts: 1
+lDistance: 0.30
+Final Solution: Solution 27 (V: 4.632692e+00 - C: 1.257466e+03)
+# cnt1.ind1 cnt2.ind2 radius1 radius2 distance (distance-radius1-radius2)
+Number of Contacts: 1
+15 22 16 21 10.00795000 10.70535000 16.08060829 -4.63269171

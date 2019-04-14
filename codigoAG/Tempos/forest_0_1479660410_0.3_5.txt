@@ -1,4 +1,4 @@
-Num Inicial Contatos: 187
+InitialNumContacts: 187
 Tempo final de execucao: 0.000000
 Numero Final de contatos: 7
 Solution Tempo Final: 13 (V: 7.172497e+01 - C: 9.193810e+03)

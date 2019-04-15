@@ -17,17 +17,17 @@ int main(int argc, char* argv[]) {
 	char* lSimulationFile = NULL;
 	double lDistance = 0.3;
 	int lPopulationSize = 50;
-	int read_solution = 1; /// 1;
+	int read_solution = 0; /// 1;
 	// CR ∈ [ 0 , 1 ] is called the crossover probability.
-	double CR = 0.5; // 0.2
+	double CR = 0.9; // 0.2
 	// Let F ∈[0, 2] be called the differential weight.
-	double F = 0.5; // 0.4
+	double F = 0.7; // 0.4
     double maxSec = 30;
     double bound[2]={-50,50};
-	int lMaxRun = 10000;    /// 10000 | 1k da menos contatos que 10k (5x7) 300it =4contacts | 400it = 5contacts menos ostensivo
+	int lMaxRun = 1000;    /// 10000 | 1k da menos contatos que 10k (5x7) 300it =4contacts | 400it = 5contacts menos ostensivo
                             /// ostensivo 300it = 4 contacts | 400it = ? realizar teste
 	int density = 5; // teste com 15 | 10 |10
-    int seed  = 1479650829; /// Seed 1479660410 densidade 5 com 10k iteracoes num contatos # visualizador
+    int seed  = 1;//1479650829; /// Seed 1479660410 densidade 5 com 10k iteracoes num contatos # visualizador
 	int c;
     while ((c = getopt(argc, argv, "d:s:c:r:")) != -1) {
         printf("Entrou leitura de parametro\n");
@@ -158,10 +158,12 @@ int main(int argc, char* argv[]) {
     population_t* lPopulation = population_build(lPopulationSize, lContacts, lForest);
     population_init(lPopulation, lForest); // Inicializa violacao e custo da populacao
     //population_update_forest(lPopulation, lForest);
+    printf("viol Contact_lookup_violation\t%e", contact_lookup_violation(lForest));
+
 
     /// Read Lili's solution, generate a txt with infos and quit
     if (read_solution){
-        int idxBest = population_best_index(lPopulation);
+        // int idxBest = population_best_index(lPopulation);
         char myFileName[300];
         sprintf(myFileName,"forests/solutionLili/forest_solution_%i_originalInfos_%.1f_30_%i_10.txt",seed,lDistance,density);
         strcpy(aux, directory);
@@ -173,7 +175,8 @@ int main(int argc, char* argv[]) {
         // no need to print final number of contacts because population wasn't evolved
         fprintf(myfile, "InitialNumContacts\t%i\nFinalNumContacts\t%i\n",initialNumContacts, initialNumContacts);
         fprintf(myfile, "lDistance\t%.2f\n",lDistance);
-        fprintf(myfile, "Final Solution: Solution\t%i\t%e\t%e\n", idxBest, lPopulation->solutions[idxBest].violation, lPopulation->solutions[idxBest].cost);
+        fprintf(myfile, "Final Solution: Solution\t%i\t%e\t%e\n", 99, contact_lookup_violation(lForest), contact_lookup_cost(lForest));
+        //fprintf(myfile, "Final Solution: Solution\t%i\t%e\t%e\n", idxBest, lPopulation->solutions[idxBest].violation, lPopulation->solutions[idxBest].cost);
         contact_write_remaining(lContacts, myfile, lForest);
         fclose(myfile);
         printf("Data generated. Exiting\n");
@@ -379,6 +382,7 @@ int main(int argc, char* argv[]) {
     printf("InitialNumContacts: %i\nFinalNumContatcs: %i\n",initialNumContacts,contact_lookup_total(lForest));
     printf("lDistance: %.2f\n",lDistance);
     printf("Final Solution: Solution %i (V: %e - C: %e)\n", idxBest, lPopulation->solutions[idxBest].violation, lPopulation->solutions[idxBest].cost);
+    printf("Calculando por forest: %e\t%e",contact_lookup_violation(lForest), contact_lookup_cost(lForest));
 	fprintf(file, "Tempo final de execucao: %f\n",elapsed);
 	fprintf(file,"Numero Final de contatos: %i\n",contact_lookup_total(lForest));
     fprintf(file,"Solution Tempo Final: %i (V: %e - C: %e)\n",idxBest,lPopulation->solutions[idxBest].violation,lPopulation->solutions[idxBest].cost);

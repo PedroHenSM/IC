@@ -19,6 +19,7 @@
     contact_list_t* contact_lookup(forest_t*);
     int contact_lookup_total(forest_t*);
     void contact_list_destroy(contact_list_t*);
-    double contact_lookup_violation(forest_t* pForest);
+    double contact_lookup_violation(forest_t*);
+    double contact_lookup_cost(forest_t*);
     void contact_write_remaining(contact_list_t *c_list, char pContactFile[], forest_t *pForest);
 #endif

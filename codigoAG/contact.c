@@ -72,9 +72,11 @@ contact_list_t* contact_lookup(forest_t* pForest) {
     return lContacts;
 }
 
+
+/*
 double contact_lookup_violation(forest_t* pForest) {
-    double violation=0;
-    for (int i = 0; i < pForest->totalCNTs-1; ++i) {
+    double fit = 0.0;
+    for (int i = 0; i < pForest->totalCNTs; ++i) {
         for (int j = 1; j < pForest->nanotubes[i].size; ++j) {
             for (int x = i + 1; x < pForest->totalCNTs; ++x) {
                 for (int y = 1; y < pForest->nanotubes[x].size; ++y) {
@@ -86,15 +88,41 @@ double contact_lookup_violation(forest_t* pForest) {
                     );
 
                     lDistance -= (pForest->nanotubes[i].radiusOut + pForest->nanotubes[x].radiusOut);
+                    printf("calculating violation lDistance: %lf\n",lDistance);
                     if(lDistance <= pForest->distance) {
-                        violation += fabs(lDistance);
+                        if(lDistance < 0){
+                            fit+= -lDistance;
+                        }
+                        else{
+                            fit+= lDistance;
+                        }
                     }
                 }
             }
         }
     }
-    return violation;
+    return fit;
 }
+*/
+
+double contact_lookup_cost(forest_t* pForest) {
+    int i = 0;
+    double cost = 0.0;
+    // iterates over cnts
+    while(i < pForest->totalCNTs){
+        for (int j = 0; j < pForest->nanotubes[i].size; j++ ){ // iterates on points of each cnt
+            // printf("calculating cost\n");
+            if (pForest->nanotubes[i].points[j].z < 0) {
+                cost += -pForest->nanotubes[i].points[j].z;
+            } else {
+                cost += pForest->nanotubes[i].points[j].z;
+            }
+        }
+        i++;
+    }
+    return cost;
+}
+
 
 int contact_lookup_total(forest_t *pForest){
     int numContacts = 0;
@@ -110,7 +138,7 @@ int contact_lookup_total(forest_t *pForest){
                     );
 
                     lDistance -= (pForest->nanotubes[i].radiusOut + pForest->nanotubes[x].radiusOut);
-                    //printf("lDistance: %lf\n",lDistance);
+                    // printf("contact lookup total lDistance: %lf\n",lDistance);
                     if(lDistance <= pForest->distance) {
                         numContacts++;
                         //printf("Contatos: %i\n",numContacts);
@@ -159,7 +187,8 @@ void contact_write_remaining(contact_list_t *pContactList, char pContactFile[], 
     }
 }
 
-/*double contact_lookup_violation(forest_t* pForest) {
+
+double contact_lookup_violation(forest_t* pForest) {
     double violation=0;
     for (int i = 0; i < pForest->totalCNTs; ++i) {
         for (int j = 1; j < pForest->nanotubes[i].size; ++j) {
@@ -171,16 +200,21 @@ void contact_write_remaining(contact_list_t *pContactList, char pContactFile[], 
                         pForest->nanotubes[i].points[j - 1],
                         pForest->nanotubes[x].points[y - 1]
                     );
-
+                    // lDist = lDist -
                     lDistance -= (pForest->nanotubes[i].radiusOut + pForest->nanotubes[x].radiusOut);
                     if(lDistance <= pForest->distance) {
-                        //printf("lDistance: %e\n",fabs(lDistance));
-                        violation += fabs(lDistance);
+                        // printf("lDistance: %e\n",fabs(lDistance));
+                        if (lDistance < 0){
+                            violation += -lDistance;
+                        }
+                        else {
+                            violation += lDistance;
+                        }
                     }
                 }
             }
         }
     }
-    printf("ViolationFuncao: %e\n",violation);
+    // printf("ViolationFuncao: %e\n",violation);
     return violation;
-}*/
+}

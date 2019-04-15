@@ -265,13 +265,6 @@ int population_best_index(population_t* pPopulation) {
 	return idxBest;
 }
 
-void retorno_teste_populacao(double v){
-    //double
-    v=15;
-    printf("O VALOR DE V: %e\n",v);
-    return v;
-}
-
 
 void population_destroy(population_t* pPopulation) {
     if (pPopulation->map != NULL) free(pPopulation->map);

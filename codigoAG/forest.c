@@ -321,7 +321,7 @@ void forest_read_solution(forest_t* pForest, char pSolutionFile[]) {
         fclose(lFile);
     }
     else{
-        printf("Arquivo não encontrado! \n");
+        printf("Arquivo solution não encontrado! \n");
         exit(1);
     }
 }

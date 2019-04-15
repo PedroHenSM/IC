@@ -5,6 +5,7 @@
 #include <time.h>
 #include <unistd.h>
 #include <string.h>
+#include <limits.h>
 
 #include "contact.h"
 #include "forest.h"
@@ -18,62 +19,66 @@ int main(int argc, char* argv[]) {
 	int lPopulationSize = 50;
 	int read_solution = 0; /// 1;
 	// CR ∈ [ 0 , 1 ] is called the crossover probability.
-	double CR = 0.9;
+	double CR = 0.5; // 0.2
 	// Let F ∈[0, 2] be called the differential weight.
-	double F = 0.5;
+	double F = 0.5; // 0.4
     double maxSec = 30;
     double bound[2]={-50,50};
-	int lMaxRun = 10000;    /// 10000 | 1k da menos contatos que 10k (5x7) 300it =4contacts | 400it = 5contacts menos ostensivo
+	int lMaxRun = 30000;    /// 10000 | 1k da menos contatos que 10k (5x7) 300it =4contacts | 400it = 5contacts menos ostensivo
                             /// ostensivo 300it = 4 contacts | 400it = ? realizar teste
 	int density = 5; // teste com 15 | 10 |10
-    int seed  = 1; /// Seed 1479660410 densidade 5 com 10k iteracoes num contatos # visualizador
+    int seed  = 1479660410; /// Seed 1479660410 densidade 5 com 10k iteracoes num contatos # visualizador
 	int c;
-    /*
-        while ((c = getopt(argc, argv, "l:s:a:d:p:c:f:r:")) != -1) {
-    	switch (c) {
-			case 'l': lSolutionFile = optarg; break;
-    		case 's': lSimulationFile = optarg; break;
-    		case 'a': lAttributeFile = optarg; break;
-    		case 'd': lDistance = atof(optarg); break;
-    		case 'p': lPopulationSize = atoi(optarg); break;
-    		case 'c': CR = atof(optarg); break;
-    		case 'f': F = atof(optarg); break;
-    		case 'r': lMaxRun = atoi(optarg); break;
-			default: abort();
-    	}
-    }
-    */
-    /*while ((c = getopt(argc, argv, "d:s:c:r:")) != -1) {
-        //printf("Entrou leitura de parametro\n");
+    while ((c = getopt(argc, argv, "d:s:c:r:")) != -1) {
+        printf("Entrou leitura de parametro\n");
     	switch (c) {
 			case 'd': density = atoi(optarg); break;
     		case 's': seed = atoi(optarg); break;
     		case 'c': lDistance = atof(optarg); break;
-    		case 'r': read_solution = atoi(optarg); break;
+    		// case 'r': read_solution = atoi(optarg); break;
     		//case 'p': lPopulationSize = atoi(optarg); break;
     		//case 'c': CR = atof(optarg); break;
     		//case 'f': F = atof(optarg); break;
     		//case 'r': lMaxRun = atoi(optarg); break;
 			default: abort();
     	}
-    }*/
-    char directory[300];
-    strcpy(directory, argv[0]);
-    printf("directory: %s", directory);
-    char *s = strstr(directory, "bin/Debug/cntOptimizaton");
-    if (s != NULL)                     // if successful then s now points at "hassasin"
-    {
-        //printf("Found string at index = %d\n", s - directory);
-        strncpy (s,directory,s - directory);
-        directory[s-directory] = '\0';
     }
-    else
-    {
-        printf("String not found\n");  // `strstr` returns NULL if search string not found
-        return -1;
+    char directory[300];
+    // strcpy(directory, argv[0]);
+    char cwd[PATH_MAX];
+    if (getcwd(cwd, sizeof(cwd)) != NULL) {
+        printf("Current working dir: %s\n", cwd);
+        strcat(cwd, "/");
+        // printf("new cwd: %s\n", cwd);
+    } else {
+        perror("getcwd() error");
+        return 1;
+    }
+    strcpy(directory, cwd);
+    char *s;
+    if (argc > 1){ // running code from terminal (for forest_solvers.sh)
+        s = strstr(directory, "bin/Debug/");
+    }
+    else{
+        s = strstr(directory, "bin/Debug/cntOptimizaton");
+    }
+
+    if (argc > 1){
+        if (s != NULL)                     // if successful then s now points at "hassasin"
+        {
+            //printf("Found string at index = %d\n", s - directory);
+            strncpy (s,directory,s - directory);
+            directory[s-directory] = '\0';
+        }
+        else
+        {
+            printf("Current Drectory: %s\n", directory);
+            printf("String not found\n");  // `strstr` returns NULL if search string not found
+            return -1;
+        }
     }
     printf("Current Drectory: %s\n", directory);
-
+    //  exit(1);
     char nameAtr[300],nameSim[300],nameSol[300], aux[300];
     /*sprintf(nameAtr,"/home/pedrohen/Documentos/Nanotubos/projetoCNT/data/attributes/forest_attributes_%i_%i_10.txt",seed,density);
     sprintf(nameSim,"/home/pedrohen/Documentos/Nanotubos/projetoCNT/data/simulation/forest_simulation_%i_30_%i_10.txt",seed,density);
@@ -362,10 +367,10 @@ int main(int argc, char* argv[]) {
     strcpy(remaining, aux);
     printf("remaining:\t%s\n", remaining);
     FILE* arq = fopen(remaining, "w");
-    fprintf(arq, "Read Solution: %i\n", read_solution);
-    fprintf(arq, "InitialNumContacts: %i\nFinalNumContacts: %i\n",initialNumContacts,contact_lookup_total(lForest));
-    fprintf(arq, "lDistance: %.2f\n",lDistance);
-    fprintf(arq, "Final Solution: Solution %i (V: %e - C: %e)\n", idxBest, lPopulation->solutions[idxBest].violation, lPopulation->solutions[idxBest].cost);
+    fprintf(arq, "Read Solution\t%i\n", read_solution);
+    fprintf(arq, "InitialNumContacts\t%i\nFinalNumContacts\t%i\n",initialNumContacts,contact_lookup_total(lForest));
+    fprintf(arq, "lDistance\t%.2f\n",lDistance);
+    fprintf(arq, "Final Solution: Solution\t%i\t%e\t%e\n", idxBest, lPopulation->solutions[idxBest].violation, lPopulation->solutions[idxBest].cost);
     fclose(arq);
     contact_write_remaining(lContacts, remaining, lForest);
     /// LILI end

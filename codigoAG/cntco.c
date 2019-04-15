@@ -17,17 +17,17 @@ int main(int argc, char* argv[]) {
 	char* lSimulationFile = NULL;
 	double lDistance = 0.3;
 	int lPopulationSize = 50;
-	int read_solution = 0; /// 1;
+	int read_solution = 1; /// 1;
 	// CR ∈ [ 0 , 1 ] is called the crossover probability.
 	double CR = 0.5; // 0.2
 	// Let F ∈[0, 2] be called the differential weight.
 	double F = 0.5; // 0.4
     double maxSec = 30;
     double bound[2]={-50,50};
-	int lMaxRun = 30000;    /// 10000 | 1k da menos contatos que 10k (5x7) 300it =4contacts | 400it = 5contacts menos ostensivo
+	int lMaxRun = 10000;    /// 10000 | 1k da menos contatos que 10k (5x7) 300it =4contacts | 400it = 5contacts menos ostensivo
                             /// ostensivo 300it = 4 contacts | 400it = ? realizar teste
 	int density = 5; // teste com 15 | 10 |10
-    int seed  = 1479660410; /// Seed 1479660410 densidade 5 com 10k iteracoes num contatos # visualizador
+    int seed  = 1479650829; /// Seed 1479660410 densidade 5 com 10k iteracoes num contatos # visualizador
 	int c;
     while ((c = getopt(argc, argv, "d:s:c:r:")) != -1) {
         printf("Entrou leitura de parametro\n");
@@ -44,12 +44,13 @@ int main(int argc, char* argv[]) {
     	}
     }
     char directory[300];
-    // strcpy(directory, argv[0]);
+    char callingDirectory[300];
+    strcpy(callingDirectory, argv[0]);
+    printf("callingDirectory:\t%s\n",callingDirectory);
     char cwd[PATH_MAX];
     if (getcwd(cwd, sizeof(cwd)) != NULL) {
         printf("Current working dir: %s\n", cwd);
         strcat(cwd, "/");
-        // printf("new cwd: %s\n", cwd);
     } else {
         perror("getcwd() error");
         return 1;
@@ -62,22 +63,27 @@ int main(int argc, char* argv[]) {
     else{
         s = strstr(directory, "bin/Debug/cntOptimizaton");
     }
-
-    if (argc > 1){
-        if (s != NULL)                     // if successful then s now points at "hassasin"
-        {
-            //printf("Found string at index = %d\n", s - directory);
-            strncpy (s,directory,s - directory);
-            directory[s-directory] = '\0';
-        }
-        else
-        {
-            printf("Current Drectory: %s\n", directory);
-            printf("String not found\n");  // `strstr` returns NULL if search string not found
-            return -1;
+    // If executing from .../codigoAG/ shouldn't enter the if bock below
+    // If executing from ../codigoAG/bin/Debug should enter the if block below
+    if (!strcmp(callingDirectory, "./cntOptimizaton")){ // running from .../codigoAG/bin/Debug/, must enter the if block
+        if (argc > 1){
+            if (s != NULL)                     // if successful then s now points at "hassasin"
+            {
+                //printf("Found string at index = %d\n", s - directory);
+                strncpy (s,directory,s - directory);
+                directory[s-directory] = '\0';
+            }
+            else
+            {
+                printf("Current Drectory: %s\n", directory);
+                printf("String not found\n");  // `strstr` returns NULL if search string not found
+                return -1;
+            }
         }
     }
-    printf("Current Drectory: %s\n", directory);
+
+
+    printf("Current Directory: %s\n", directory);
     //  exit(1);
     char nameAtr[300],nameSim[300],nameSol[300], aux[300];
     /*sprintf(nameAtr,"/home/pedrohen/Documentos/Nanotubos/projetoCNT/data/attributes/forest_attributes_%i_%i_10.txt",seed,density);
@@ -86,7 +92,7 @@ int main(int argc, char* argv[]) {
     */
     sprintf(nameAtr,"forests/attributes/forest_attributes_%i_%i_10.txt",seed,density);
     sprintf(nameSim,"forests/simulation/forest_simulation_%i_30_%i_10.txt",seed,density);
-    sprintf(nameSol,"forests/solution/forest_solution_%i_dir_%.1f_30_%i_10.txt",seed,lDistance,density);
+    sprintf(nameSol,"forests/originalSolution/forest_solution_%i_dir_%.1f_30_%i_10.txt",seed,lDistance,density);  // read Lili's solution
 
     strcpy(aux, directory);
     strcat(aux, nameAtr);
@@ -142,16 +148,37 @@ int main(int argc, char* argv[]) {
     strcpy(aux, directory);
     strcat(aux, testName);
     strcpy(testName, aux);
-
     printf("testName:\t%s\n", testName);
-
     forest_write_simulation(lForest,testName);
+
     ///abort();  /// OPS
     int initialNumContacts = contact_lookup_total(lForest);
     printf("InitialNumContacts: %i\n", initialNumContacts);
     printf("lDistance: %.1f\n",lDistance);
     population_t* lPopulation = population_build(lPopulationSize, lContacts, lForest);
     population_init(lPopulation, lForest); // Inicializa violacao e custo da populacao
+    //population_update_forest(lPopulation, lForest);
+
+    /// Read Lili's solution, generate a txt with infos and quit
+    if (read_solution){
+        int idxBest = population_best_index(lPopulation);
+        char myFileName[300];
+        sprintf(myFileName,"forests/solutionLili/forest_solution_%i_originalInfos_%.1f_30_%i_10.txt",seed,lDistance,density);
+        strcpy(aux, directory);
+        strcat(aux, myFileName);
+        strcpy(myFileName, aux);
+        printf("myFileName: %s\n",myFileName);
+        FILE* myfile = fopen(myFileName, "w");
+        fprintf(myfile, "Read Solution\t%i\n", read_solution);
+        // no need to print final number of contacts because population wasn't evolved
+        fprintf(myfile, "InitialNumContacts\t%i\nFinalNumContacts\t%i\n",initialNumContacts, initialNumContacts);
+        fprintf(myfile, "lDistance\t%.2f\n",lDistance);
+        fprintf(myfile, "Final Solution: Solution\t%i\t%e\t%e\n", idxBest, lPopulation->solutions[idxBest].violation, lPopulation->solutions[idxBest].cost);
+        contact_write_remaining(lContacts, myfile, lForest);
+        fclose(myfile);
+        printf("Data generated. Exiting\n");
+        exit(2);
+    }
     printf("lPopulationSize: %i\n",lPopulation->size);
 	solution_t lSolution;
 	lSolution.size = lPopulation->solutions[0].size;

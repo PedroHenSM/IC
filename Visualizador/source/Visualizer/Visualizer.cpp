@@ -367,7 +367,12 @@ namespace Library
                     {
                         size_t end_ = toBeReplaced.size();
                         remainingContacts.replace(start, end_, replaceTo);
-                        CompareContacts(remainingContacts);
+                        if(FileExists(remainingContacts)){
+                            CompareContacts(remainingContacts);
+                        }
+                        else{
+                            std::cout<< "File not found for comparison\t" << remainingContacts << std::endl;
+                        }
                     }
                 }
             }

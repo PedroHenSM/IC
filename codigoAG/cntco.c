@@ -17,17 +17,18 @@ int main(int argc, char* argv[]) {
 	char* lSimulationFile = NULL;
 	double lDistance = 0.3;
 	int lPopulationSize = 50;
-	int read_solution = 0; /// 1;
+	int read_solution = 1; /// 1;
+	int getDataAndExit = 0; // 1 if just wanna get data from Lili's solution and 0 if wanna improve Lili's Solution
 	// CR ∈ [ 0 , 1 ] is called the crossover probability.
-	double CR = 0.9; // 0.2
+	double CR = 0.5; // 0.2
 	// Let F ∈[0, 2] be called the differential weight.
-	double F = 0.7; // 0.4
+	double F = 0.5; // 0.4
     double maxSec = 30;
     double bound[2]={-50,50};
-	int lMaxRun = 1000;    /// 10000 | 1k da menos contatos que 10k (5x7) 300it =4contacts | 400it = 5contacts menos ostensivo
+	int lMaxRun = 100;    /// 10000 | 1k da menos contatos que 10k (5x7) 300it =4contacts | 400it = 5contacts menos ostensivo
                             /// ostensivo 300it = 4 contacts | 400it = ? realizar teste
 	int density = 5; // teste com 15 | 10 |10
-    int seed  = 1;//1479650829; /// Seed 1479660410 densidade 5 com 10k iteracoes num contatos # visualizador
+    int seed  = 1479650829;//1479650829; /// Seed 1479660410 densidade 5 com 10k iteracoes num contatos # visualizador
 	int c;
     while ((c = getopt(argc, argv, "d:s:c:r:")) != -1) {
         printf("Entrou leitura de parametro\n");
@@ -158,11 +159,9 @@ int main(int argc, char* argv[]) {
     population_t* lPopulation = population_build(lPopulationSize, lContacts, lForest);
     population_init(lPopulation, lForest); // Inicializa violacao e custo da populacao
     //population_update_forest(lPopulation, lForest);
-    printf("viol Contact_lookup_violation\t%e", contact_lookup_violation(lForest));
-
 
     /// Read Lili's solution, generate a txt with infos and quit
-    if (read_solution){
+    if (read_solution && getDataAndExit){
         // int idxBest = population_best_index(lPopulation);
         char myFileName[300];
         sprintf(myFileName,"forests/solutionLili/forest_solution_%i_originalInfos_%.1f_30_%i_10.txt",seed,lDistance,density);
@@ -175,10 +174,10 @@ int main(int argc, char* argv[]) {
         // no need to print final number of contacts because population wasn't evolved
         fprintf(myfile, "InitialNumContacts\t%i\nFinalNumContacts\t%i\n",initialNumContacts, initialNumContacts);
         fprintf(myfile, "lDistance\t%.2f\n",lDistance);
-        fprintf(myfile, "Final Solution: Solution\t%i\t%e\t%e\n", 99, contact_lookup_violation(lForest), contact_lookup_cost(lForest));
+        fprintf(myfile, "Final Solution: Solution\t%i\t%e\t%e\n", -1, contact_lookup_violation(lForest), contact_lookup_cost(lForest));
         //fprintf(myfile, "Final Solution: Solution\t%i\t%e\t%e\n", idxBest, lPopulation->solutions[idxBest].violation, lPopulation->solutions[idxBest].cost);
-        contact_write_remaining(lContacts, myfile, lForest);
         fclose(myfile);
+        contact_write_remaining(lContacts, myFileName, lForest);
         printf("Data generated. Exiting\n");
         exit(2);
     }
@@ -288,14 +287,27 @@ int main(int argc, char* argv[]) {
                 sprintf(name4,"/home/pedrohen/Documentos/Nanotubos/projetoCNT/Resultados/forest_solution_%i_%i_fullt_%.1f_30_%i_10.txt",read_solution,seed,lDistance,density);
                 forest_write_simulation(lForest,name4);*/
                 char testName[300];
-                sprintf(testName,"forests/solution/forest_solution_%i_de_%.1f_30_%i_10.txt",seed,lDistance,density);
-
+                sprintf(testName,"forests/solution/forest_solutionLen0_%i_de_%.1f_30_%i_10.txt",seed,lDistance,density);
                 strcpy(aux, directory);
                 strcat(aux, testName);
                 strcpy(testName, aux);
                 printf("testName:\t%s\n", testName);
-
                 forest_write_simulation(lForest,testName);
+
+
+                char remainingSolutionLen[200];
+                sprintf(remainingSolutionLen,"forests/solution/forest_remainingSolLen0_%i_de_%.1f_30_%i_10.txt",seed,lDistance,density);
+                strcpy(aux, directory);
+                strcat(aux, remainingSolutionLen);
+                strcpy(remainingSolutionLen, aux);
+                printf("remainingSolutionLen:\t%s\n", remainingSolutionLen);
+                FILE* arq = fopen(remainingSolutionLen, "w");
+                fprintf(arq, "Read Solution\t%i\n", read_solution);
+                fprintf(arq, "InitialNumContacts\t%i\nFinalNumContacts\t%i\n",initialNumContacts,contact_lookup_total(lForest));
+                fprintf(arq, "lDistance\t%.2f\n",lDistance);
+                fprintf(arq, "Final Solution: Solution\t%i\t%e\t%e\n", idxBest, lPopulation->solutions[idxBest].violation, lPopulation->solutions[idxBest].cost);
+                fclose(arq);
+                contact_write_remaining(lContacts, remainingSolutionLen, lForest);
                 exit(1);
 			}
 			int R = rand() % lSolution.length;
@@ -379,10 +391,12 @@ int main(int argc, char* argv[]) {
 
 
     printf("Read Solution: %i\n", read_solution);
-    printf("InitialNumContacts: %i\nFinalNumContatcs: %i\n",initialNumContacts,contact_lookup_total(lForest));
+    printf("InitialNumContacts: %i\nFinalNumContacts(: %i\n",initialNumContacts,contact_lookup_total(lForest));
+    //contact_look
     printf("lDistance: %.2f\n",lDistance);
     printf("Final Solution: Solution %i (V: %e - C: %e)\n", idxBest, lPopulation->solutions[idxBest].violation, lPopulation->solutions[idxBest].cost);
-    printf("Calculando por forest: %e\t%e",contact_lookup_violation(lForest), contact_lookup_cost(lForest));
+    printf("Calculating solution from contact_lookup:NumContacts: %i (V: %e - C: %e)\n",contact_lookup_total(lForest), contact_lookup_violation(lForest), contact_lookup_cost(lForest));
+    // printf("Calculando por forest: %e\t%e\n",contact_lookup_violation(lForest), contact_lookup_cost(lForest));
 	fprintf(file, "Tempo final de execucao: %f\n",elapsed);
 	fprintf(file,"Numero Final de contatos: %i\n",contact_lookup_total(lForest));
     fprintf(file,"Solution Tempo Final: %i (V: %e - C: %e)\n",idxBest,lPopulation->solutions[idxBest].violation,lPopulation->solutions[idxBest].cost);

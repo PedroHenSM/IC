@@ -139,7 +139,6 @@ int main(int argc, char* argv[]) {
         forest_read_solution(lForest,lSolutionFile);
     	//abort();
     }
-
     contact_list_t* lContacts = contact_lookup(lForest);
     printf("NumContatos: %i\n",lContacts->length);
     char testName[300];
@@ -158,6 +157,7 @@ int main(int argc, char* argv[]) {
     printf("lDistance: %.1f\n",lDistance);
     population_t* lPopulation = population_build(lPopulationSize, lContacts, lForest);
     population_init(lPopulation, lForest); // Inicializa violacao e custo da populacao
+    printf("Calculating solution from contact_lookup(byForest)b4AttForest:NumContacts: %i (V: %e - C: %e)\n",contact_lookup_total(lForest), contact_lookup_violation(lForest), contact_lookup_cost(lForest));
     //population_update_forest(lPopulation, lForest);
 
     /// Read Lili's solution, generate a txt with infos and quit
@@ -374,28 +374,28 @@ int main(int argc, char* argv[]) {
     sprintf(testName,"/home/pedrohen/Documentos/Nanotubos/gcgtube/forests/solution/forest_solution_%i_de_%.1f_30_%i_10.txt",seed,lDistance,density);
     forest_write_simulation(lForest,testName);
     exit(5);*/
+    printf("Calculating solution from contact_lookup(byForest)b4AttForest:NumContacts: %i (V: %e - C: %e)\n",contact_lookup_total(lForest), contact_lookup_violation(lForest), contact_lookup_cost(lForest));
 	population_update_forest(lPopulation, lForest);
-    // population_print_best(lPopulation);
+	//printf("POp print best(byPopulation): ");
+    population_print_best(lPopulation);
+    printf("Best coordenates population\n");
+    population_printCoordenates_best(lPopulation);
+    printf("Coordenates of populations\n");
+    population_print(lPopulation);
+    //printf("\n");
 
-    /*
-    contact_list_destroy(lContacts);
-    free(lContacts);
-    printf(" CONTATOS APÒS EVOLUIR POPULACAO\n");
-    lContacts = contact_lookup(lForest);
-    */
     lContacts = contact_lookup(lForest); // updates lContacts for printing remaining contacts
+
 	idxBest = population_best_index(lPopulation);
-    //lSolution.violation = population_calc_violation(lPopulation, &lSolution, lForest);
-    //printf("lSolution.violation: %lf\n",lSolution.violation);
+    //printf("Violation by pop_calc_violation: %e\n", population_calc_violation(lPopulation, &lSolution, lForest));
 
-
-
+    // lPopulation->solutions.
     printf("Read Solution: %i\n", read_solution);
-    printf("InitialNumContacts: %i\nFinalNumContacts(: %i\n",initialNumContacts,contact_lookup_total(lForest));
+    printf("InitialNumContacts: %i\nFinalNumContacts(byForest): %i\n",initialNumContacts,contact_lookup_total(lForest));
     //contact_look
     printf("lDistance: %.2f\n",lDistance);
-    printf("Final Solution: Solution %i (V: %e - C: %e)\n", idxBest, lPopulation->solutions[idxBest].violation, lPopulation->solutions[idxBest].cost);
-    printf("Calculating solution from contact_lookup:NumContacts: %i (V: %e - C: %e)\n",contact_lookup_total(lForest), contact_lookup_violation(lForest), contact_lookup_cost(lForest));
+    printf("Final Solution(byPopulation): Solution %i (V: %e - C: %e)\n", idxBest, lPopulation->solutions[idxBest].violation, lPopulation->solutions[idxBest].cost);
+    printf("Calculating solution from contact_lookup(byForest):NumContacts: %i (V: %e - C: %e)\n",contact_lookup_total(lForest), contact_lookup_violation(lForest), contact_lookup_cost(lForest));
     // printf("Calculando por forest: %e\t%e\n",contact_lookup_violation(lForest), contact_lookup_cost(lForest));
 	fprintf(file, "Tempo final de execucao: %f\n",elapsed);
 	fprintf(file,"Numero Final de contatos: %i\n",contact_lookup_total(lForest));
@@ -430,8 +430,9 @@ int main(int argc, char* argv[]) {
     else{
         fprintf(arq,"Solution Tempo Final: %i (V: %e - C: %e)\n",idxBest,lPopulation->solutions[idxBest].violation,lPopulation->solutions[idxBest].cost);
     }
-    */
+
     fclose(arq);
+    */
     /// End just for tests
 
 

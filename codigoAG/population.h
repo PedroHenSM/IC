@@ -28,6 +28,7 @@
     void population_update_forest(population_t*, forest_t*);
     void population_print(population_t*);
     void population_print_best(population_t*);
+    void population_printCoordenates_best(population_t*);
     void population_destroy(population_t*);
     int population_best_index(population_t* pPopulation);
     void solution_update_forest(solution_t pSolution, forest_t* pForest);

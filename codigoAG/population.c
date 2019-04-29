@@ -42,8 +42,19 @@ void population_add_random(population_t* pPopulation, forest_t* pForest, double 
 
     for (int i = 1; i < pPopulation->size; ++i) {
     	for (int j = 0; j < pPopulation->solutions[i].length; ++j) {
-    		pPopulation->solutions[i].points[j].z += (rand() / randDiv) - half;
+            pPopulation->solutions[i].points[j].z += (rand() / randDiv) - half;
     	}
+    	/**
+    	            if (!readSolution){  // didn't read Lili's solution, initializes Z coordenates with random values
+                pPopulation->solutions[i].points[j].z += (rand() / randDiv) - half;
+            }
+            else{ // starts from Lili's Solution
+                if(i == 1){ // sets first solution to be Lili's Solution and the others one are random
+                    pPopulation->solutions[i].points[j].z = pForest.
+                }
+            }
+        **/
+
     }
 }
 
@@ -211,7 +222,6 @@ void population_update_forest(population_t* pPopulation, forest_t* pForest) {
     		int lCntId = pPopulation->solutions[i].points[j].id;
     	    int lCntIdx = lCntId / pForest->growthSteps;
     	    int lPointIdx = lCntId % pForest->growthSteps;
-
     	    pForest->nanotubes[lCntIdx].points[lPointIdx] = pPopulation->solutions[i].points[j];
     	}
 	//}
@@ -237,6 +247,15 @@ void population_print(population_t* pPopulation) {
 		printf("\n\n");
 	}
 }
+
+void population_printCoordenates_best(population_t* pPopulation) {
+    int i = population_best_index(pPopulation);
+    for (int j = 0; j < pPopulation->solutions[i].length; ++j) {
+        printf("%d: %f %f %f\n", j, pPopulation->solutions[i].points[j].x, pPopulation->solutions[i].points[j].y, pPopulation->solutions[i].points[j].z);
+    }
+    printf("\n");
+}
+
 
 void population_print_best(population_t* pPopulation) {
 	int idxBest = 0;

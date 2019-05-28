@@ -233,7 +233,24 @@ void solution_update_forest(solution_t pSolution, forest_t* pForest) {
     	    int lCntIdx = lCntId / pForest->growthSteps;
     	    int lPointIdx = lCntId % pForest->growthSteps;
 
-    	    pForest->nanotubes[lCntIdx].points[lPointIdx] = pSolution.points[j];
+    	    pForest->nanotubes[lCntIdx].points[lPointIdx] = pSolution.points[j]; /// ORIGINAL LINE
+    	}
+	//}
+}
+
+void population_update_forestTEST(population_t* pPopulation, forest_t* pForest) {
+        int i = population_best_index(pPopulation);
+    	for (int j = 0; j < pPopulation->solutions[i].length; ++j) {
+    		int lCntId = pPopulation->solutions[i].points[j].id;
+    	    int lCntIdx = lCntId / pForest->growthSteps;
+    	    int lPointIdx = lCntId % pForest->growthSteps;
+
+            // ********TESTING**********
+            if (lCntIdx != 45 && lPointIdx != 16){
+                pForest->nanotubes[lCntIdx].points[lPointIdx] = pPopulation->solutions[i].points[j];
+            }
+            // ********TESTING**********
+    	    //pForest->nanotubes[lCntIdx].points[lPointIdx] = pPopulation->solutions[i].points[j]; /// ORIGINAL LINE
     	}
 	//}
 }
@@ -251,7 +268,21 @@ void population_print(population_t* pPopulation) {
 void population_printCoordenates_best(population_t* pPopulation) {
     int i = population_best_index(pPopulation);
     for (int j = 0; j < pPopulation->solutions[i].length; ++j) {
-        printf("%d: %f %f %f\n", j, pPopulation->solutions[i].points[j].x, pPopulation->solutions[i].points[j].y, pPopulation->solutions[i].points[j].z);
+        printf("%d: %g %g %g\n", j, pPopulation->solutions[i].points[j].x, pPopulation->solutions[i].points[j].y, pPopulation->solutions[i].points[j].z);
+    }
+    printf("\n");
+}
+
+void population_printCoordenates_bestTest(population_t* pPopulation, forest_t* pForest) {
+    int i = population_best_index(pPopulation);
+    for (int j = 0; j < pPopulation->solutions[i].length; ++j) {
+        // printf("%d: %g %g %g\n", j, pPopulation->solutions[i].points[j].x, pPopulation->solutions[i].points[j].y, pPopulation->solutions[i].points[j].z);
+        int lCntId = pPopulation->solutions[i].points[j].id;
+        int lCntIdx = lCntId / pForest->growthSteps;
+        int lPointIdx = lCntId % pForest->growthSteps;
+        printf("\npForest->nanotubes[%d].points[%d] = pPopulation->solutions[%d].points[%d]\n", lCntIdx, lPointIdx,i, j);
+        printf("points[%d].x = %g points[%d].y = %g points[%d].z = %g \n",j, pPopulation->solutions[i].points[j].x, j, pPopulation->solutions[i].points[j].y, j, pPopulation->solutions[i].points[j].z);
+        // Forest->nanotubes[lCntIdx].points[lPointIdx] = pPopulation->solutions[i].points[j];
     }
     printf("\n");
 }

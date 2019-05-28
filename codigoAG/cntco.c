@@ -17,7 +17,7 @@ int main(int argc, char* argv[]) {
 	char* lSimulationFile = NULL;
 	double lDistance = 0.3;
 	int lPopulationSize = 50;
-	int read_solution = 1; /// 1;
+	int read_solution = 0; /// 1;
 	int getDataAndExit = 0; // 1 if just wanna get data from Lili's solution and 0 if wanna improve Lili's Solution
 	// CR ∈ [ 0 , 1 ] is called the crossover probability.
 	double CR = 0.5; // 0.2
@@ -58,7 +58,7 @@ int main(int argc, char* argv[]) {
     }
     strcpy(directory, cwd);
     char *s;
-    if (argc > 1){ // running code from terminal (for forest_solvers.sh)
+    if (argc >=0 ){ //>1 running code from terminal (for forest_solvers.sh)
         s = strstr(directory, "bin/Debug/");
     }
     else{
@@ -67,7 +67,7 @@ int main(int argc, char* argv[]) {
     // If executing from .../codigoAG/ shouldn't enter the if bock below
     // If executing from ../codigoAG/bin/Debug should enter the if block below
     if (!strcmp(callingDirectory, "./cntOptimizaton")){ // running from .../codigoAG/bin/Debug/, must enter the if block
-        if (argc > 1){
+        if (argc >=0){ // >1
             if (s != NULL)                     // if successful then s now points at "hassasin"
             {
                 //printf("Found string at index = %d\n", s - directory);
@@ -123,7 +123,6 @@ int main(int argc, char* argv[]) {
     //lSimulationFile = "/home/pedro/Área de Trabalho/Diversos/CNT/projetoCNT/data/simulation/forest_simulation_1_30_10_10.txt";
 	srand(seed);
     forest_t* lForest = forest_create(lDistance);
-
     if (lSolutionFile == NULL) {
     	if (lAttributeFile != NULL && lSimulationFile != NULL) {
             printf("Leu floresta original!\n");
@@ -150,15 +149,22 @@ int main(int argc, char* argv[]) {
     strcpy(testName, aux);
     printf("testName:\t%s\n", testName);
     forest_write_simulation(lForest,testName);
-
     ///abort();  /// OPS
     int initialNumContacts = contact_lookup_total(lForest);
     printf("InitialNumContacts: %i\n", initialNumContacts);
     printf("lDistance: %.1f\n",lDistance);
     population_t* lPopulation = population_build(lPopulationSize, lContacts, lForest);
     population_init(lPopulation, lForest); // Inicializa violacao e custo da populacao
+    lContacts = contact_lookup(lForest);
+    read_solution = 1;
+    if(read_solution){
+        lSolutionFile = nameSol;
+    }
+    forest_read_solution(lForest, lSolutionFile);
+    lContacts = contact_lookup(lForest);
     printf("Calculating solution from contact_lookup(byForest)b4AttForest:NumContacts: %i (V: %e - C: %e)\n",contact_lookup_total(lForest), contact_lookup_violation(lForest), contact_lookup_cost(lForest));
     //population_update_forest(lPopulation, lForest);
+    //exit(1);
 
     /// Read Lili's solution, generate a txt with infos and quit
     if (read_solution && getDataAndExit){
@@ -376,17 +382,33 @@ int main(int argc, char* argv[]) {
     exit(5);*/
     printf("Calculating solution from contact_lookup(byForest)b4AttForest:NumContacts: %i (V: %e - C: %e)\n",contact_lookup_total(lForest), contact_lookup_violation(lForest), contact_lookup_cost(lForest));
 	population_update_forest(lPopulation, lForest);
+	//population_update_forestTEST(lPopulation, lForest);
 	//printf("POp print best(byPopulation): ");
     population_print_best(lPopulation);
     printf("Best coordenates population\n");
     population_printCoordenates_best(lPopulation);
-    printf("Coordenates of populations\n");
-    population_print(lPopulation);
+    // printf("*******TESTING*******");
+    // population_printCoordenates_bestTest(lPopulation, lForest);
+    //printf("Best coordenates population. All points:\n");
+    //printf("Solution %d", idxBest);
+    /*
+    int j;
+    for (j = 0; j < lPopulation->solutions[idxBest].length; j++){
+        for (p = 0; p < )
+        // printf("%g %g %g\n", lPopulation->solutions[idxBest]->points.x, lPopulation->solutions[idxBest]->points.y, lPopulation->solutions[idxBest]->points.z);
+        printf("%f", lPopulation->solutions[idxBest].points[p].x);
+    }
+    */
+
+    //printf("Coordenates of populations\n");
+    //population_print(lPopulation);
     //printf("\n");
 
     lContacts = contact_lookup(lForest); // updates lContacts for printing remaining contacts
 
 	idxBest = population_best_index(lPopulation);
+    printf("*******TESTING*******");
+    population_printCoordenates_bestTest(lPopulation, lForest);
     //printf("Violation by pop_calc_violation: %e\n", population_calc_violation(lPopulation, &lSolution, lForest));
 
     // lPopulation->solutions.

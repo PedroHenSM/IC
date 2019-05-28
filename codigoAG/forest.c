@@ -288,11 +288,14 @@ void forest_read_solution(forest_t* pForest, char pSolutionFile[]) {
             lRead = fgets(lReadBuffer, FOREST_READ_BUFFER_SIZE, lFile);
             if (lRead != NULL) pForest->nanotubes[i].size = atoi(lReadBuffer) + 1;
 
+            //testing
+            //printf("p\n%d\n30\n", i);
+            // end testing
+
             // Loop and read all data points.
             for (int j = 0; j < pForest->nanotubes[i].size; ++j) {
                 // Read point coordinates.
                 lRead = fgets(lReadBuffer, FOREST_READ_BUFFER_SIZE, lFile);
-
                 // Did we read anything?
                 if (lRead != NULL) {
                     pForest->nanotubes[i].points[j].id = (i * pForest->growthSteps) + j;
@@ -303,6 +306,9 @@ void forest_read_solution(forest_t* pForest, char pSolutionFile[]) {
                     pForest->nanotubes[i].points[j].y = atof(lToken);
                     lToken = strtok(NULL, " ");
                     pForest->nanotubes[i].points[j].z = atof(lToken);
+                    // printf("nanotubes[i].points[j].z = %f\n",pForest->nanotubes[i].points[j].z);
+                    // printf("%g %g %g\n", pForest->nanotubes[i].points[j].x,pForest->nanotubes[i].points[j].y, pForest->nanotubes[i].points[j].z);
+                    // pForest->nanotubes[i].points[j].z = 0;  // testing
                 }
             }
 
